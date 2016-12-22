@@ -1,0 +1,19 @@
+# Linux
+
+*.swp
+*~
+.fuse_hidden*
+
+# CodeBlocks
+*.cbp
+*.layout
+*.depend
+bin/
+obj/
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
