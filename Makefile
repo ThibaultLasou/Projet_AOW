@@ -20,5 +20,3 @@ $(EXEC_NAME) : $(OBJ_FILES)
 
 $(OBJ_FILES) : $(ODIR)%.o: $(SDIR)%.cpp 
 	$(CC) $(CXXFLAGS) -o $@ -c $<
-
-
