@@ -4,8 +4,7 @@ EXEC_NAME = aow
 SDIR = src/
 ODIR = obj/
 SRC = $(wildcard $(SDIR)*.cpp)
-#OBJ_FILES = $(ODIR)$(SRC:.cpp=.o)
-OBJ_FILES = $(patsubst $(SDIR)%,$(ODIR)%, $(SRC:.cpp=.o))
+OBJ_FILES = $(SRC:.cpp=.o)
 
 all : $(EXEC_NAME)
 
@@ -18,5 +17,5 @@ mrproper : clean
 $(EXEC_NAME) : $(OBJ_FILES)
 	$(CC) -o $(EXEC_NAME) $(OBJ_FILES)
 
-$(OBJ_FILES) : $(ODIR)%.o: $(SDIR)%.cpp 
+%.o: %.cpp %.hpp
 	$(CC) $(CXXFLAGS) -o $@ -c $<
