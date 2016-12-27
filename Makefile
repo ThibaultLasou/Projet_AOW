@@ -1,9 +1,7 @@
 CC = g++
 CXXFLAGS = -std=c++11 -Wall -Wnon-virtual-dtor -Wpedantic
 EXEC_NAME = aow
-SDIR = src/
-ODIR = obj/
-SRC = $(wildcard $(SDIR)*.cpp)
+SRC = src/main.cpp src/Attaquable.cpp src/Jeu.cpp src/Joueur.cpp src/Base.cpp src/Case.cpp src/Unite.cpp
 OBJ_FILES = $(SRC:.cpp=.o)
 
 all : $(EXEC_NAME)
@@ -15,7 +13,7 @@ mrproper : clean
 	rm $(EXEC_NAME)
 
 $(EXEC_NAME) : $(OBJ_FILES)
-	$(CC) -o $(EXEC_NAME) $(OBJ_FILES)
+	$(CC) -o $@ $^
 
 %.o: %.cpp %.hpp
-	$(CC) $(CXXFLAGS) -o $@ -c $<
+	$(CC) -o $@ -c $< $(CXXFLAGS) 

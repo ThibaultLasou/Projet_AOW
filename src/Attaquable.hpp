@@ -1,18 +1,19 @@
 #ifndef __ATTAQ_H__
 #define __ATTAQ_H__
 
-#include "Joueur.hpp"
+class Joueur;
 
 class Attaquable
 {
 	private :
-		int pv;
-		Joueur* proprio;	
+		int vie;
+		Joueur &proprio;	
 
 	public :
-		Attaquable(int pv);
+		Attaquable(Joueur &propri, int pv);
 		virtual ~Attaquable();
 		virtual void recevoirDegats(int deg);
+		bool estEnnemi(const Attaquable a) const;
 };
 
 #endif

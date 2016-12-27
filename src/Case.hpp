@@ -1,16 +1,17 @@
 #ifndef __CASE_H__
 #define __CASE_H__
 
-#include "Unite.hpp"
+class Unite;
 
 class Case
 {
-	private :
+	protected :
 		Unite *occupe;
 
 	public :
+		Case();
 		virtual ~Case();
-		virtual bool estLibre();
+		virtual bool estLibre() const;
 };
 
 

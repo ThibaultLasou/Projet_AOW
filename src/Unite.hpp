@@ -14,6 +14,7 @@ class Unite : public Attaquable
 		////avancer();
 	
 	public :
+		Unite(Joueur &propri, int pv, int attaque, int* portee, int prix);
 		virtual ~Unite();
 		virtual bool action1() = 0;
 		virtual bool action2() = 0;

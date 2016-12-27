@@ -7,7 +7,10 @@
 class Base : public Attaquable, public Case
 {
 	public : 
-		bool peutSpawn();
+		Base(Joueur &propri, int vie=100);
+		~Base();
+		bool estLibre() const override;
+		bool peutSpawn() const;
 };
 
 #endif

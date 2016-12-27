@@ -1,9 +1,10 @@
 #include <iostream>
 
-#include "Base.hpp"
+#include "Jeu.hpp"
 
 int main()
 {
+	Jeu j();
 	std::cout << "Plop" << std::endl;
 
 	return 0;

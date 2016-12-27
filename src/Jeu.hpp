@@ -1,6 +1,13 @@
 #ifndef __JEU_H__
 #define __JEU_H__
 
+#include <string>
+#include <list>
+#include <vector>
+
+#include "Joueur.hpp"
+#include "Case.hpp"
+
 class Jeu
 {
 	private :
@@ -8,10 +15,12 @@ class Jeu
 		int nbTour;
 		int orParTour;
 		int nbCases;
-		//Collection de Cases
-		Joueur joueurs[2];
+		std::list<Case> leTerrain;
+		std::vector<Joueur> joueurs;
 
 	public : 
+		Jeu(int tourMax=100, int orTour=8, int cases=12, std::string nomJ1="A", std::string nomJ2="B");
+		~Jeu();
 		void tourDeJeu();
 };
 
