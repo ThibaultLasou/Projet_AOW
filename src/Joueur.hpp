@@ -18,8 +18,9 @@ class Joueur
 
 	public :
 		Joueur(std::string nom, int cote);
-		~Joueur();
-		//acheter()
+		virtual ~Joueur();
+		virtual int choix();
+		void acheter();
 		//jouer()
 };
 

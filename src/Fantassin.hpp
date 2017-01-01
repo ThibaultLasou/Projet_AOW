@@ -5,18 +5,21 @@
 
 class Fantassin : public Unite
 {
-	private :
-		static int vieF;
-		static int attF;
-		static int prixF;
-		static int[1] porteeF = {1};
-	
 	public :
+        static const int vieF = 10;
+		static const int attF = 4;
+		static const int prixF = 10;
+		//static constexpr int porteeF[1] = {1};
+		static const std::vector<int> porteeF;
+
 		Fantassin();
+		Fantassin(Joueur &propri);
 		~Fantassin();
-		action1();
-		action2();
-		action3();
-}
+		/*
+		bool action1();
+		bool action2();
+		bool action3();
+		*/
+};
 
 #endif
