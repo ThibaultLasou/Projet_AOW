@@ -7,15 +7,14 @@ class Unite : public Attaquable
 {
 	private :
 		int attaque;
-		//int* portee;
 		int prix;
 		std::vector<int> portee;
-
+		Case& saCase;
 		//attaquer();
-		////avancer();
+		avancer();
 
 	public :
-		Unite(Joueur &propri, int pv, int attaque, std::vector<int> port, int prix);
+		Unite(Joueur& propri, int pv, int attaque, std::vector<int> port, int prix);
 		virtual ~Unite();
 		virtual bool action1() = 0;
 		virtual bool action2() = 0;

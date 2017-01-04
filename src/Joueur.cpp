@@ -21,7 +21,7 @@ int Joueur::choix()
     }
     else
     {
-        if(tresor >= Catapulte::prixC) //choisir une catapultre
+        if(tresor >= Catapulte::prixC) //choisir une catapulte
         {
             return 1;
         }
@@ -43,9 +43,13 @@ void Joueur::acheter()
     {
         case 1:
         {
-            tresor = tresor-Catapulte::prixC;
-            Catapulte c(this);
+            tresor -= Catapulte::prixC;
+            this->armee.push_back(new Catapulte(*this));
         }
-
     }
+}
+
+const Base& Joueur::getBase() const
+{
+	return *saBase;
 }

@@ -1,7 +1,7 @@
 CC = g++
 CXXFLAGS = -std=c++11 -Wall -Wnon-virtual-dtor -Wpedantic
 EXEC_NAME = aow
-SRC = src/main.cpp src/Attaquable.cpp src/Jeu.cpp src/Joueur.cpp src/Base.cpp src/Case.cpp src/Unite.cpp
+SRC = src/main.cpp src/Attaquable.cpp src/Jeu.cpp src/Joueur.cpp src/Base.cpp src/Case.cpp src/Unite.cpp src/Catapulte.cpp src/Archer.cpp
 OBJ_FILES = $(SRC:.cpp=.o)
 
 all : $(EXEC_NAME)
