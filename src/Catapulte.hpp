@@ -13,11 +13,10 @@ class Catapulte : public Unite
 
 		Catapulte(Joueur &propri);
 		~Catapulte();
-		/*
+
 		bool action1();
 		bool action2();
 		bool action3();
-		*/
 };
 
 

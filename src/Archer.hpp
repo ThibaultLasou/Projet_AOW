@@ -11,14 +11,12 @@ class Archer : public Unite
 		static const int prixA = 12;
         static const std::vector<int> porteeA;
 
-		//Archer();
 		Archer(Joueur &propri);
 		~Archer();
-		/*
+
 		bool action1();
 		bool action2();
 		bool action3();
-		*/
 };
 
 

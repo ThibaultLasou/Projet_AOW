@@ -10,6 +10,7 @@ class Case
 
 	public :
 		Case();
+		Case(const Case *x);
 		virtual ~Case();
 		virtual bool estLibre() const;
 };
