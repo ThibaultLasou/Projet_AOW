@@ -19,5 +19,13 @@ Jeu::~Jeu()
 
 void Jeu::tourDeJeu()
 {
+    for(Joueur& joueur : joueurs)
+    {
+       joueur.ajoutArgent(orParTour);
+    }
 
+    for(Joueur& joueur : joueurs)
+    {
+       joueur.jouer();
+    }
 }

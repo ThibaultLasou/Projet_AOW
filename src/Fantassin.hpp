@@ -13,7 +13,6 @@ class Fantassin : public Unite
 		static const int prixF = 10;
 		static const std::vector<int> porteeF;
 
-		Fantassin();
 		Fantassin(Joueur &propri);
 		~Fantassin();
 

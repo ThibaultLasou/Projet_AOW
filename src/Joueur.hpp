@@ -23,6 +23,7 @@ class Joueur
 		void acheter();
         void jouer();
 		const Base& getBase() const;
+		void ajoutArgent(int montant);
 };
 
 #endif

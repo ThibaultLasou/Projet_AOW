@@ -1,4 +1,7 @@
 #include "Fantassin.hpp"
+
+const std::vector<int> Fantassin::porteeF {1};
+
 Fantassin::Fantassin(Joueur &propri): Unite(propri, vieF, attF, prixF, porteeF), aJoue(false)
 {
 
