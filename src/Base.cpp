@@ -1,7 +1,7 @@
 #include "Base.hpp"
 
-Base::Base(Joueur &propri, int vie) :
-	Attaquable(propri, vie)
+Base::Base(Jeu &jeu, Joueur &propri, int vie) :
+	 Case(jeu), Attaquable(propri, vie)
 {
 
 }

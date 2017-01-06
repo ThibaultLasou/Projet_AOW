@@ -1,6 +1,7 @@
 #include "Case.hpp"
+#include "Jeu.hpp"
 
-Case::Case() : occupe(nullptr)
+Case::Case(Jeu &jeu) : leJeu(jeu), occupe(nullptr)
 {
 
 }
@@ -20,4 +21,9 @@ bool Case::estLibre() const
 	{
 		return false;
 	}
+}
+
+Case& Case::getCase(int delta, int dir) const
+{
+	return *(leJeu.getNextCase(*this, dir, delta));
 }

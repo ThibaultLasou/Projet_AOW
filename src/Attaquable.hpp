@@ -5,7 +5,7 @@ class Joueur;
 
 class Attaquable
 {
-	private :
+	protected:
 		int vie;
 		Joueur &proprio;	
 

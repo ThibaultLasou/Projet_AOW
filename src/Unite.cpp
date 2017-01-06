@@ -12,3 +12,24 @@ Unite::~Unite()
 {
 
 }
+
+bool Unite::attaquer()
+{
+
+}
+
+bool Unite::avancer()
+{
+	Case &nextCase = saCase.getCase(proprio.cote, 1);
+	if(nextCase.estLibre())
+	{
+		nextCase.setUnite(this);
+		saCase.setUnite(nullptr);
+		this->saCase = nextCase;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

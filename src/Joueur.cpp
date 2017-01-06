@@ -49,7 +49,12 @@ void Joueur::acheter()
     }
 }
 
-const Base& Joueur::getBase() const
+Base& Joueur::getBase() const
 {
 	return *saBase;
+}
+
+int Joueur::cote() const
+{
+	return sonCote;
 }
