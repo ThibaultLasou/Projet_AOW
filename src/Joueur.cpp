@@ -21,17 +21,20 @@ int Joueur::choix()
     }
     else
     {
-        if(tresor >= Catapulte::prixC) //choisir une catapulte
+        if(tresor >= Fantassin::prixF)
         {
-            return 1;
-        }
-        if(tresor >= Archer::prixA && tresor < Catapulte::prixC) // choisir un archer
-        {
-            return 2;
-        }
-        if(tresor >= Fantassin::prixF && tresor < Archer::prixA) // choisir fantassin
-        {
-            return 3;
+            if(tresor >= Catapulte::prixC) //choisir une catapulte
+            {
+                return 3;
+            }
+            else if(tresor >= Archer::prixA) // choisir un archer
+            {
+                return 2;
+            }
+           else
+            {
+                return 1;
+            }
         }
     }
 }
