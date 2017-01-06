@@ -12,7 +12,13 @@ Joueur::Joueur(std::string nom, int cote) :
 
 Joueur::~Joueur()
 {
-
+    Unite* it;
+    while(!armee.empty())
+    {
+     it = armee.back();
+     delete it;
+     armee.pop_back();
+    }
 }
 
 int Joueur::choix()

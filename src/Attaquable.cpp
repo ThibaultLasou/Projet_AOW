@@ -13,5 +13,5 @@ Attaquable::~Attaquable()
 
 void Attaquable::recevoirDegats(int deg)
 {
-
+    vie -= deg;
 }
