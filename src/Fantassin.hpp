@@ -5,6 +5,8 @@
 
 class Fantassin : public Unite
 {
+    protected :
+        bool aJoue;
 	public :
         static const int vieF = 10;
 		static const int attF = 4;
@@ -14,10 +16,11 @@ class Fantassin : public Unite
 		Fantassin();
 		Fantassin(Joueur &propri);
 		~Fantassin();
-		
+
 		bool action1();
 		bool action2();
 		bool action3();
+
 };
 
 #endif

@@ -21,7 +21,7 @@ class Joueur
 		virtual ~Joueur();
 		virtual int choix();
 		void acheter();
-		//jouer()
+        void jouer();
 		const Base& getBase() const;
 };
 

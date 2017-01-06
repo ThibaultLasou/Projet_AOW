@@ -1,5 +1,5 @@
 #include "Fantassin.hpp"
-Fantassin::Fantassin(Joueur &propri): Unite(propri, vieF, attF, prixF, porteeF)
+Fantassin::Fantassin(Joueur &propri): Unite(propri, vieF, attF, prixF, porteeF), aJoue(false)
 {
 
 }

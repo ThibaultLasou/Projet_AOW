@@ -21,21 +21,19 @@ int Joueur::choix()
     }
     else
     {
-        if(tresor >= Fantassin::prixF)
+        if(tresor >= Catapulte::prixC) //choisir une catapulte
         {
-            if(tresor >= Catapulte::prixC) //choisir une catapulte
-            {
-                return 3;
-            }
-            else if(tresor >= Archer::prixA) // choisir un archer
-            {
-                return 2;
-            }
-           else
-            {
-                return 1;
-            }
+            return 3;
         }
+        else if(tresor >= Archer::prixA) // choisir un archer
+        {
+            return 2;
+        }
+       else //choisir un fantassin
+        {
+            return 1;
+        }
+
     }
 }
 
@@ -55,4 +53,25 @@ void Joueur::acheter()
 const Base& Joueur::getBase() const
 {
 	return *saBase;
+}
+
+void Joueur::jouer()
+{
+    std::list<Unite*>::const_iterator it_before = armee.begin();
+    --it_before;
+    std::list<Unite*>::const_iterator it;
+    for( it = armee.end(); it != it_before; it--)
+    {
+       (*it)->action1();
+    }
+
+    for( it = armee.begin(); it != armee.end(); it++)
+    {
+       (*it)->action2();
+    }
+
+    for( it = armee.begin(); it != armee.end(); it++)
+    {
+       (*it)->action3();
+    }
 }
