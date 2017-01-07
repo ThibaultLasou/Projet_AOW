@@ -22,8 +22,9 @@ class Joueur
 		virtual int choix();
 		void acheter();
         void jouer();
-		const Base& getBase() const;
 		void ajoutArgent(int montant);
+		Base& getBase() const;
+		int cote() const;
 };
 
 #endif

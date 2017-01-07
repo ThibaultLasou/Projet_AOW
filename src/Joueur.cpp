@@ -72,7 +72,7 @@ void Joueur::acheter()
     }
 }
 
-const Base& Joueur::getBase() const
+Base& Joueur::getBase() const
 {
 	return *saBase;
 }
@@ -102,4 +102,9 @@ void Joueur::jouer()
 void Joueur::ajoutArgent(int montant)
 {
     this->tresor += montant;
+}
+
+int Joueur::cote() const
+{
+	return sonCote;
 }

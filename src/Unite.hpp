@@ -12,9 +12,9 @@ class Unite : public Attaquable
 		int attaque;
 		int prix;
 		std::vector<int> portee;
-		const Case& saCase;
-		//attaquer();
-		//avancer();
+		Case* saCase;
+		bool attaquer();
+		bool avancer();
 
 	public :
 		Unite(Joueur& propri, int pv, int attaque, int prix, std::vector<int> port);

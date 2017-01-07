@@ -5,7 +5,7 @@ class Joueur;
 
 class Attaquable
 {
-	private :
+	protected:
 		int vie;
 		Joueur &proprio;
 
@@ -13,8 +13,8 @@ class Attaquable
 		Attaquable(Joueur &propri, int pv);
 		virtual ~Attaquable();
 		virtual void recevoirDegats(int deg);
-		bool estEnnemi(const Attaquable a) const;
 		//virtual void mort();
+		bool estEnnemi(const Attaquable &a) const;
 };
 
 #endif
