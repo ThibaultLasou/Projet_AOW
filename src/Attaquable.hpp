@@ -13,7 +13,7 @@ class Attaquable
 		Attaquable(Joueur &propri, int pv);
 		virtual ~Attaquable();
 		virtual void recevoirDegats(int deg);
-		bool estEnnemi(const Attaquable a) const;
+		bool estEnnemi(const Attaquable &a) const;
 };
 
 #endif

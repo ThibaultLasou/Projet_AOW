@@ -14,8 +14,9 @@ class Case
 		Case(Jeu &jeu);
 		virtual ~Case();
 		virtual bool estLibre() const;
-		virtual Case& getCase(int delta, int dir) const;
+		virtual Case* getCase(int delta, int dir);
 		void setUnite(Unite *newUnit);
+		Unite* unit();
 };
 
 

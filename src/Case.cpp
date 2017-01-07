@@ -23,7 +23,17 @@ bool Case::estLibre() const
 	}
 }
 
-Case& Case::getCase(int delta, int dir) const
+Case* Case::getCase(int delta, int dir)
 {
-	return *(leJeu.getNextCase(*this, dir, delta));
+	return leJeu.getNextCase(this, dir, delta);
+}
+
+void Case::setUnite(Unite *newUnit)
+{
+	occupe = newUnit;
+}
+
+Unite* Case::unit()
+{
+	return occupe;
 }

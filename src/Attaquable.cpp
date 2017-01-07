@@ -15,3 +15,8 @@ void Attaquable::recevoirDegats(int deg)
 {
 
 }
+
+bool Attaquable::estEnnemi(const Attaquable &a) const
+{
+	return (&(a.proprio) == &(this->proprio));
+}

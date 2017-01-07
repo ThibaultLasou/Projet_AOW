@@ -4,8 +4,9 @@
 #include "Base.hpp"
 
 Unite::Unite(Joueur &propri, int pv, int att, int price, std::vector<int> port) :
-	Attaquable(propri, pv), attaque(att), prix(price), portee(port), saCase(propri.getBase())
+	Attaquable(propri, pv), attaque(att), prix(price), portee(port), saCase(&(propri.getBase()))
 {
+	saCase->setUnite(this);
 }
 
 Unite::~Unite()
@@ -15,16 +16,30 @@ Unite::~Unite()
 
 bool Unite::attaquer()
 {
+	for(int i : portee)
+	{
+		Case *nextCase = this->saCase->getCase(i, proprio.cote());
+		if(!nextCase->estLibre())
+		{
+			if(nextCase->unit()->estEnnemi(*this))
+			{
+				nextCase->unit()->recevoirDegats(this->attaque);
+				return true;
+			}
+		}
+	}
+	return false;
 
 }
 
 bool Unite::avancer()
 {
-	Case &nextCase = saCase.getCase(proprio.cote, 1);
-	if(nextCase.estLibre())
+	
+	Case *nextCase = this->saCase->getCase(1, proprio.cote());
+	if(nextCase != nullptr && nextCase->estLibre())
 	{
-		nextCase.setUnite(this);
-		saCase.setUnite(nullptr);
+		nextCase->setUnite(this);
+		saCase->setUnite(nullptr);
 		this->saCase = nextCase;
 		return true;
 	}

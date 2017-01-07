@@ -18,12 +18,12 @@ Jeu::Jeu(int tourMax, int orTour, int cases, std::string nomJ1, std::string nomJ
 Jeu::~Jeu()
 {}
 
-Case* Jeu::getNextCase(const Case& c, int dir, int delta) const
+Case* Jeu::getNextCase(const Case *c, int dir, int delta) const
 {
 	std::list<Case>::const_iterator it;
 	for(it=this->leTerrain.begin();it!= this->leTerrain.end();++it)
 	{
-		if((Case*)&(*it) == &c)
+		if((Case*)&(*it) == c)
 		{
 			break;
 		}
