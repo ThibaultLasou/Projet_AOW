@@ -26,7 +26,11 @@ Joueur::~Joueur()
 
 int Joueur::choix()
 {
-    if(!saBase->peutSpawn() && tresor<Fantassin::prixF)
+    if(!saBase->peutSpawn())
+    {
+        return -1;
+    }
+    else if(tresor<Fantassin::prixF)
     {
         return 0;
     }
@@ -50,32 +54,43 @@ int Joueur::choix()
 
 void Joueur::acheter()
 {
+    std::cout<<"joueur "<<nom<<" : ";
     int choixUnite = choix();
     switch(choixUnite)
     {
+        case -1:
+        {
+            std::cout<<"La base n'est pas libre";
+            break;
+        }
         case 0:
         {
-            std::cout<<"Pas assez d'or"<<std::endl;
+            std::cout<<"Pas assez d'or";
+            break;
         }
         case 1:
         {
             tresor -= Fantassin::prixF;
             this->armee.push_back(new Fantassin(*this));
-             std::cout<<"Achat d'un fantassin"<<std::endl;
+            std::cout<<"Achat d'un fantassin";
+            break;
         }
         case 2:
         {
             tresor -= Archer::prixA;
             this->armee.push_back(new Archer(*this));
-            std::cout<<"Achat d'un archer"<<std::endl;
+            std::cout<<"Achat d'un archer";
+            break;
         }
         case 3:
         {
             tresor -= Catapulte::prixC;
             this->armee.push_back(new Catapulte(*this));
-            std::cout<<"Achat d'une catapulte"<<std::endl;
+            std::cout<<"Achat d'une catapulte";
+            break;
         }
     }
+    std::cout<<" (or restant : "<<tresor<<")"<<std::endl;
 }
 
 Base& Joueur::getBase() const
@@ -107,7 +122,10 @@ void Joueur::jouer()
 
 void Joueur::ajoutArgent(int montant)
 {
+    std::cout<<"Or joueur "<<nom<< " : "<< tresor;
     this->tresor += montant;
+    std::cout<<"->"<<tresor<<std::endl;
+
 }
 
 int Joueur::cote() const
