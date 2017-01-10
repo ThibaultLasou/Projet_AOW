@@ -6,12 +6,12 @@
 
 Case::Case(Jeu &jeu) : leJeu(jeu), occupe(nullptr)
 {
-	std::cout << "Constructeur <Case>" << std::endl;
+	std::cerr << "Constructeur <Case>" << std::endl;
 }
 
 Case::~Case()
 {
-	std::cout << "Destructeur <Case>" << std::endl;
+	std::cerr << "Destructeur <Case>" << std::endl;
 }
 
 bool Case::estLibre() const
