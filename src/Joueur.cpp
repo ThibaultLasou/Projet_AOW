@@ -52,22 +52,25 @@ void Joueur::acheter()
     {
         case 0:
         {
-            std::cout<<"Vous ne possedez pas assez de pieces d'or pour effectuer des achats"<<std::endl;
+            std::cout<<"Pas assez d'or"<<std::endl;
         }
         case 1:
         {
             tresor -= Fantassin::prixF;
             this->armee.push_back(new Fantassin(*this));
+             std::cout<<"Achat d'un fantassin"<<std::endl;
         }
         case 2:
         {
             tresor -= Archer::prixA;
             this->armee.push_back(new Archer(*this));
+            std::cout<<"Achat d'un archer"<<std::endl;
         }
         case 3:
         {
             tresor -= Catapulte::prixC;
             this->armee.push_back(new Catapulte(*this));
+            std::cout<<"Achat d'une catapulte"<<std::endl;
         }
     }
 }
