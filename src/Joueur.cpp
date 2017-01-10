@@ -9,12 +9,12 @@
 Joueur::Joueur(std::string nom, int cote) :
 	nom(nom), tresor(0), sonCote(cote), armee()
 {
-	std::cout << "Constructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
+	std::cerr << "Constructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
 }
 
 Joueur::~Joueur()
 {
-	std::cout << "Destructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
+	std::cerr << "Destructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
     Unite* it;
     while(!armee.empty())
 	{

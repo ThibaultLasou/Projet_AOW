@@ -8,13 +8,13 @@
 Base::Base(Jeu &jeu, Joueur &propri, int vie) :
 	 Case(jeu), Attaquable(propri, vie)
 {
-	std::cout << "Constructeur <Base>" << std::endl;
+	std::cerr << "Constructeur <Base>" << std::endl;
 	propri.setBase(this);
 }
 
 Base::~Base()
 {
-	std::cout << "Destructeur <Base>" << std::endl;
+	std::cerr << "Destructeur <Base>" << std::endl;
 }
 
 bool Base::estLibre() const

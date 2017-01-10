@@ -9,6 +9,5 @@ int main()
     j.tourDeJeu();
     j.tourDeJeu();
 
-
 	return 0;
 }

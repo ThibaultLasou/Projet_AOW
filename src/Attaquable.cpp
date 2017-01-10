@@ -5,12 +5,12 @@
 Attaquable::Attaquable(Joueur &propri, int pv) :
 	vie(pv), proprio(propri)
 {
-	std::cout << "Constructeur <Attaquable>" << std::endl;
+	std::cerr << "Constructeur <Attaquable>" << std::endl;
 }
 
 Attaquable::~Attaquable()
 {
-	std::cout << "Destructeur <Attaquable>" << std::endl;
+	std::cerr << "Destructeur <Attaquable>" << std::endl;
 }
 
 void Attaquable::recevoirDegats(int deg)
