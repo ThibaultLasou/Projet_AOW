@@ -3,6 +3,7 @@
 
 class Jeu;
 class Unite;
+class Attaquable;
 
 class Case
 {
@@ -16,7 +17,7 @@ class Case
 		virtual bool estLibre() const;
 		virtual Case* getCase(int delta, int dir);
 		void setUnite(Unite *newUnit);
-		Unite* unit();
+		virtual	Attaquable* cible();
 };
 
 

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <iostream>
 
 class Unite;
 class Base;
@@ -24,6 +25,7 @@ class Joueur
         void jouer();
 		void ajoutArgent(int montant);
 		Base& getBase() const;
+		void setBase(Base *b);
 		int cote() const;
 };
 

@@ -4,7 +4,8 @@
 
 int main()
 {
-	Jeu j();
+	Jeu j("X","Y");
+	j.tourDeJeu();
 
 
 

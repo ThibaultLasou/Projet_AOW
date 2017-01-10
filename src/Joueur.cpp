@@ -3,22 +3,25 @@
 #include "Fantassin.hpp"
 #include "Archer.hpp"
 #include "Catapulte.hpp"
+
 #include <iostream>
 
 Joueur::Joueur(std::string nom, int cote) :
 	nom(nom), tresor(0), sonCote(cote), armee()
 {
+	std::cout << "Constructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
 }
 
 Joueur::~Joueur()
 {
+	std::cout << "Destructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
     Unite* it;
     while(!armee.empty())
-    {
-     it = armee.back();
-     delete it;
-     armee.pop_back();
-    }
+	{
+		it = armee.back();
+		delete it;
+		armee.pop_back();
+	}
 }
 
 int Joueur::choix()
@@ -110,4 +113,9 @@ void Joueur::ajoutArgent(int montant)
 int Joueur::cote() const
 {
 	return sonCote;
+}
+
+void Joueur::setBase(Base *b)
+{
+	saBase = b;
 }

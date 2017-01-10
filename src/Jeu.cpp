@@ -2,21 +2,26 @@
 #include "Base.hpp"
 #include <iterator>
 
-Jeu::Jeu(int tourMax, int orTour, int cases, std::string nomJ1, std::string nomJ2) :
+#include <iostream>
+
+Jeu::Jeu(std::string nomJ1, std::string nomJ2, int tourMax, int orTour, int cases) :
 	nbTourMax(tourMax), nbTour(0), orParTour(orTour), nbCases(cases), joueurs()
 {
-	joueurs.push_back(Joueur(nomJ1,1));
-	joueurs.push_back(Joueur(nomJ2,-1));
-	leTerrain.push_front(Base(*this, joueurs[1]));
+	std::cout << "Constructeur <Jeu>" << std::endl;
+	joueurs.emplace_back(nomJ1,1);
+	joueurs.emplace_back(nomJ2,-1);
+	leTerrain.push_front(*(new Base(*this, joueurs[1])));
 	for(int i=1;i<nbCases-1;i++)
 	{
-		leTerrain.push_front(Case(*this));
+		leTerrain.push_front(*(new Case(*this)));
 	}
-	leTerrain.push_front(Base(*this, joueurs[0]));
+	leTerrain.push_front(*(new Base(*this, joueurs[0])));
 }
 
 Jeu::~Jeu()
-{}
+{
+	std::cout << "Destructeur <Jeu>" << std::endl;
+}
 
 void Jeu::tourDeJeu()
 {
