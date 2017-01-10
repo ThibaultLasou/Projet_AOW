@@ -11,6 +11,7 @@ class Base : public Case, public Attaquable
 		~Base();
 		bool estLibre() const override;
 		bool peutSpawn() const;
+		Attaquable* cible();
 };
 
 #endif

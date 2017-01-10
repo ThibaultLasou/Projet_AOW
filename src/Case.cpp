@@ -1,14 +1,17 @@
 #include "Case.hpp"
 #include "Jeu.hpp"
+#include "Unite.hpp"
+
+#include <iostream>
 
 Case::Case(Jeu &jeu) : leJeu(jeu), occupe(nullptr)
 {
-
+	std::cout << "Constructeur <Case>" << std::endl;
 }
 
 Case::~Case()
 {
-
+	std::cout << "Destructeur <Case>" << std::endl;
 }
 
 bool Case::estLibre() const
@@ -33,7 +36,7 @@ void Case::setUnite(Unite *newUnit)
 	occupe = newUnit;
 }
 
-Unite* Case::unit()
+Attaquable* Case::cible()
 {
 	return occupe;
 }
