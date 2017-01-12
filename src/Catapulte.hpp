@@ -14,9 +14,9 @@ class Catapulte : public Unite
 		Catapulte(Joueur &propri);
 		~Catapulte();
 
-		bool action1();
-		bool action2();
-		bool action3();
+		bool action1() override;
+		bool action2() override;
+		bool action3() override;
 };
 
 
