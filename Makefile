@@ -1,31 +1,42 @@
 CC = g++
 CXXFLAGS = -std=c++11 -Wall -Wnon-virtual-dtor -Wpedantic
-EXEC_NAME_RELEASE = aow
-EXEC_NAME_DEBUG = aow_d
-SRC = src/main.cpp src/Attaquable.cpp src/Jeu.cpp src/Joueur.cpp src/Base.cpp src/Case.cpp src/Unite.cpp src/Catapulte.cpp src/Archer.cpp src/Fantassin.cpp
-OBJ_FILES = $(SRC:.cpp=.o)
-OBJ_FILES_DEBUG = $(OBJ_FILES)
+EXEC_RELEASE = aow
+EXEC_DEBUG = aow_d
+SDIR = src/
+ODIR_D = obj/Debug/
+ODIR_R = obj/Release/
+BDIR = bin/
+IDIR = include/
+SRC = $(wildcard src/*.cpp)
+HEADS = $(wildcard src/*.hpp)
+CLASSES = $(HEADS:$(SDIR)%.hpp=%)
+OBJ = $(CLASSES:%=$(ODIR_R)%.o)
+OBJ_D = $(CLASSES:%=$(ODIR_D)%.o)
+MOBJ = $(ODIR_R)main.o
+MOBJ_D = $(ODIR_D)main.o
 
-Debug : $(EXEC_NAME_DEBUG)
+Debug : $(EXEC_DEBUG)
 
-Release : $(EXEC_NAME_RELEASE)
-
-all : $(EXEC_NAME_RELEASE) $(EXEC_NAME_DEBUG)
+Release : $(EXEC_RELEASE)
 
 clean :
-	rm $(OBJ_FILES)
+	rm $(OBJ) $(OBJ_D) $(MOBJ_D) $(MOBJ)
 
 mrproper : clean
-	rm $(EXEC_NAME_RELEASE) $(EXEC_NAME_DEBUG)
+	echo $(EXEC_NAME_RELEASE) $(EXEC_NAME_DEBUG)
 
-$(EXEC_NAME_RELEASE) : $(OBJ_FILES)
+$(EXEC_RELEASE) : $(OBJ) $(MOBJ)
 	$(CC) -o $@ $^
 
-$(EXEC_NAME_DEBUG) : $(OBJ_FILES_DEBUG)
+$(EXEC_DEBUG) : $(OBJ_D) $(MOBJ_D)
 	$(CC) -o $@ $^
 
-$(OBJ_FILES_DEBUG): %.o : %.cpp
+$(MOBJ) : $(HEADS)
+
+$(MOBJ_D) : $(HEADS)
+
+$(ODIR_D)%.o: $(SDIR)%.cpp
 	$(CC) -o $@ -c $< $(CXXFLAGS) -g
 
-%.o: %.cpp %.hpp
-	$(CC) -o $@ -c $< $(CXXFLAGS) 
+$(ODIR_R)%.o: $(SDIR)%.cpp
+	$(CC) -o $@ -c $< $(CXXFLAGS)
