@@ -29,6 +29,7 @@ class Joueur
 		int cote() const;
 		std::string sonNom() const;
 		std::string toString() const;
+		void removeUnite(Unite* u); /* TODO */
 };
 
 #endif

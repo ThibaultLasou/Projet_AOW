@@ -104,7 +104,7 @@ void Joueur::jouer()
     std::list<Unite*>::const_iterator it_before = armee.begin();
     --it_before;
     std::list<Unite*>::const_iterator it;
-    for( it = armee.end(); it != it_before; it--)
+    for( it = armee.end(), it--; it != it_before; --it)
     {
        (*it)->action1();
     }
@@ -149,4 +149,9 @@ std::string Joueur::toString() const
 	std::stringstream res;
 	res << sonNom() + " : " << tresor << " or" << std::endl;
 	return res.str();
+}
+
+void Joueur::removeUnite(Unite* u)
+{
+	/* enleve une unité morte de l'armée du joueur */
 }

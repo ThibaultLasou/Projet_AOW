@@ -14,11 +14,11 @@ class Fantassin : public Unite
 		static const std::vector<int> porteeF;
 
 		Fantassin(Joueur &propri);
-		~Fantassin();
+		virtual ~Fantassin();
 
-		virtual void action1() override;
-		virtual void action2() override;
-		virtual void action3() override;
+		virtual void action1() override; /* TODO */
+		virtual void action2() override; 
+		virtual void action3() override; /* TODO */
 		virtual std::string toString() const override;
 };
 

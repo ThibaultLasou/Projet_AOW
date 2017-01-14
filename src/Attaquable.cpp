@@ -17,16 +17,17 @@ resultAttaque* Attaquable::recevoirDegats(int deg)
 {
 	resultAttaque *res = new resultAttaque;
     vie -= deg;
-	if(vie == 0)
+	if(vie <= 0)
 	{
 		res->fatal = true;
+		mort();
 	}
 	return res;
 }
 
 void Attaquable::mort()
 {
-
+	delete this;
 }
 
 bool Attaquable::estEnnemi(const Attaquable &a) const

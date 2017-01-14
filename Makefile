@@ -1,12 +1,12 @@
-CC = g++
-CXXFLAGS = -std=c++11 -Wall -Wnon-virtual-dtor -Wpedantic -I./include/
-EXEC_RELEASE = aow
-EXEC_DEBUG = aow_d
 SDIR = src/
 ODIR_D = obj/Debug/
 ODIR_R = obj/Release/
 BDIR = bin/
 IDIR = include/
+CC = g++
+CXXFLAGS = -std=c++11 -Wall -Wnon-virtual-dtor -Wpedantic -I$(IDIR)
+EXEC_RELEASE = aow
+EXEC_DEBUG = aow_d
 SRC = $(wildcard $(SDIR)*.cpp)
 HEADS = $(wildcard $(IDIR)*.hpp)
 CLASSES = $(HEADS:$(IDIR)%.hpp=%)

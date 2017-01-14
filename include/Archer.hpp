@@ -12,7 +12,7 @@ class Archer : public Unite
         static const std::vector<int> porteeA;
 
 		Archer(Joueur &propri);
-		~Archer();
+		virtual ~Archer();
 
 		virtual void action1() override;
 		virtual void action2() override;

@@ -20,7 +20,7 @@ void Fantassin::action1()
 
 void Fantassin::action2()
 {
-	/* avancer */
+	avancer();
 }
 
 void Fantassin::action3()
