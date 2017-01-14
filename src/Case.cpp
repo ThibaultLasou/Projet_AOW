@@ -26,7 +26,7 @@ bool Case::estLibre() const
 	}
 }
 
-Case* Case::getCase(int delta, int dir)
+Case* Case::getCase(int delta, int dir) const
 {
 	return leJeu.getNextCase(this, dir, delta);
 }
@@ -39,4 +39,16 @@ void Case::setUnite(Unite *newUnit)
 Attaquable* Case::cible()
 {
 	return occupe;
+}
+
+std::string Case::toString() const
+{
+	if(occupe != nullptr)
+	{
+		return occupe->toString();
+	}
+	else
+	{
+		return "Case vide";
+	}
 }

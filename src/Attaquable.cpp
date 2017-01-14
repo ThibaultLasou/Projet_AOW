@@ -13,12 +13,23 @@ Attaquable::~Attaquable()
 	std::cerr << "Destructeur <Attaquable>" << std::endl;
 }
 
-void Attaquable::recevoirDegats(int deg)
+resultAttaque* Attaquable::recevoirDegats(int deg)
 {
+	resultAttaque *res = new resultAttaque;
     vie -= deg;
+	if(vie == 0)
+	{
+		res->fatal = true;
+	}
+	return res;
+}
+
+void Attaquable::mort()
+{
+
 }
 
 bool Attaquable::estEnnemi(const Attaquable &a) const
 {
-	return (&(a.proprio) == &(this->proprio));
+	return (&(a.proprio) != &(this->proprio));
 }

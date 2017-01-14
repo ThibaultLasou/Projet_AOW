@@ -1,47 +1,63 @@
 #include "Jeu.hpp"
 #include "Base.hpp"
-#include <iterator>
+#include "JoueurHumain.hpp"
 
+#include <iterator>
 #include <iostream>
+#include <sstream>
 
 Jeu::Jeu(std::string nomJ1, std::string nomJ2, int tourMax, int orTour, int cases) :
 	nbTourMax(tourMax), nbTour(0), orParTour(orTour), nbCases(cases)
 {
 	std::cerr << "Constructeur <Jeu>" << std::endl;
-	joueurs.emplace_back(nomJ1,1);
-	joueurs.emplace_back(nomJ2,-1);
-	leTerrain.emplace_back(Base(*this, joueurs[1]));
+
+	Joueur *j = new Joueur(nomJ1, 1);
+	JoueurHumain *j2 = new JoueurHumain(nomJ2, -1);
+	joueurs.push_back(j);
+	joueurs.push_back(j2);
+	leTerrain.push_back(new Base(*this, *joueurs[1]));
 	for(int i=1;i<nbCases-1;i++)
 	{
-		leTerrain.emplace_front(Case(*this));
+		leTerrain.push_front(new Case(*this));
 	}
-	leTerrain.emplace_front(Base(*this, joueurs[0]));
+	leTerrain.push_front(new Base(*this, *joueurs[0]));
 }
 
 Jeu::~Jeu()
 {
 	std::cerr << "Destructeur <Jeu>" << std::endl;
+	while(!joueurs.empty())
+	{
+		delete joueurs.back();
+		joueurs.pop_back();
+	}
+	while(!leTerrain.empty())
+	{
+		delete leTerrain.back();
+		leTerrain.pop_back();
+	}
 }
 
 void Jeu::tourDeJeu()
 {
-    for(Joueur& joueur : joueurs)
+	std::cout << toString();
+    for(Joueur* joueur : joueurs)
     {
-       joueur.ajoutArgent(orParTour);
+       joueur->ajoutArgent(orParTour);
     }
 
-    for(Joueur& joueur : joueurs)
+    for(Joueur* joueur : joueurs)
     {
-       joueur.jouer();
+       joueur->jouer();
     }
 }
 
 Case* Jeu::getNextCase(const Case *c, int dir, int delta) const
 {
-	std::list<Case>::const_iterator it;
+	std::list<Case*>::const_iterator it;
 	for(it=this->leTerrain.begin();it!= this->leTerrain.end();++it)
 	{
-		if((Case*)&(*it) == c)
+		if(c == *it)
 		{
 			break;
 		}
@@ -61,5 +77,21 @@ Case* Jeu::getNextCase(const Case *c, int dir, int delta) const
 			return nullptr;
 		}
 	}
-	return (Case*)&(*it);
+	return *it;
+}
+
+std::string Jeu::toString() const
+{
+	std::stringstream res;
+	int i = 0;
+	for(Joueur *j : joueurs)
+	{
+		res << j->toString() << std::endl;
+	}
+	for(Case *c : leTerrain)
+	{
+		res << "Case " << i << " : " << c->toString() << std::endl;;
+		i++;
+	}
+	return res.str();
 }

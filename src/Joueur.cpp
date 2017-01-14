@@ -5,6 +5,7 @@
 #include "Catapulte.hpp"
 
 #include <iostream>
+#include <sstream>
 
 Joueur::Joueur(std::string nom, int cote) :
 	nom(nom), tresor(0), sonCote(cote), armee()
@@ -136,4 +137,16 @@ int Joueur::cote() const
 void Joueur::setBase(Base *b)
 {
 	saBase = b;
+}
+
+std::string Joueur::sonNom() const
+{
+	return "Joueur " + nom;
+}
+
+std::string Joueur::toString() const
+{
+	std::stringstream res;
+	res << sonNom() + " : " << tresor << " or" << std::endl;
+	return res.str();
 }

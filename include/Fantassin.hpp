@@ -16,10 +16,10 @@ class Fantassin : public Unite
 		Fantassin(Joueur &propri);
 		~Fantassin();
 
-		bool action1() override;
-		bool action2() override;
-		bool action3() override;
-
+		virtual void action1() override;
+		virtual void action2() override;
+		virtual void action3() override;
+		virtual std::string toString() const override;
 };
 
 #endif

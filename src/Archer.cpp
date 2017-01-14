@@ -1,3 +1,5 @@
+#include <sstream>
+#include "Joueur.hpp"
 #include "Archer.hpp"
 
 const std::vector<int> Archer::porteeA {1,2,3};
@@ -10,17 +12,24 @@ Archer::Archer(Joueur &propri): Unite(propri, vieA, attA, prixA, porteeA)
 Archer::~Archer()
 {}
 
-bool Archer::action1()
+void Archer::action1()
 {
-	return false;
+	attaquer();
 }
 
-bool Archer::action2()
+void Archer::action2()
 {
-	return false;
+	avancer();
 }
 
-bool Archer::action3()
+void Archer::action3()
 {
-	return false;
+	/* rien */
+}
+
+std::string Archer::toString() const
+{
+	std::stringstream res;
+	res << "Archer (" + proprio.sonNom() +") : " << vie << " PV";
+	return res.str();
 }
