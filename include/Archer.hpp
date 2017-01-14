@@ -5,6 +5,8 @@
 
 class Archer : public Unite
 {
+    protected :
+        bool aJoue;
 	public :
         static const int vieA = 8;
 		static const int attA = 3;

@@ -15,6 +15,7 @@ Catapulte::~Catapulte()
 void Catapulte::action1()
 {
 	/* attaquer */
+	aJoue = attaquer();
 }
 
 void Catapulte::action2()
@@ -25,6 +26,11 @@ void Catapulte::action2()
 void Catapulte::action3()
 {
 	/* avancer si pas action1 */
+		if(!aJoue)
+	{
+        avancer();
+        aJoue = false;
+	}
 }
 
 std::string Catapulte::toString() const
