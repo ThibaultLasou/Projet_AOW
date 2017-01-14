@@ -151,7 +151,18 @@ std::string Joueur::toString() const
 	return res.str();
 }
 
+/* enleve une unité morte de l'armée du joueur */
 void Joueur::removeUnite(Unite* u)
 {
-	/* enleve une unité morte de l'armée du joueur */
+    std::list<Unite*>::iterator it = armee.begin() ;
+
+    while(it != armee.end())
+    {
+        if(*it == u)
+        {
+            it = armee.erase(it) ;
+            return;
+        }
+        it++ ;
+    }
 }
