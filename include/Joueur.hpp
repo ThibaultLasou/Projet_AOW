@@ -10,7 +10,7 @@ class Base;
 
 class Joueur
 {
-	private :
+	protected :
 		std::string nom;
 		int tresor;
 		int sonCote;
@@ -30,6 +30,7 @@ class Joueur
 		std::string sonNom() const;
 		std::string toString() const;
 		void removeUnite(Unite* u); /* TODO */
+		int getTresor() const;
 };
 
 #endif
