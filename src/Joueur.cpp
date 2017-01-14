@@ -30,7 +30,7 @@ int Joueur::choix()
     {
         return -1;
     }
-    else if(tresor<Fantassin::prixF)
+    else if(tresor < Fantassin::prixF)
     {
         return 0;
     }

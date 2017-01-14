@@ -2,7 +2,7 @@ CC = g++
 CXXFLAGS = -std=c++11 -Wall -Wnon-virtual-dtor -Wpedantic
 EXEC_NAME_RELEASE = aow
 EXEC_NAME_DEBUG = aow_d
-SRC = src/main.cpp src/Attaquable.cpp src/Jeu.cpp src/Joueur.cpp src/Base.cpp src/Case.cpp src/Unite.cpp src/Catapulte.cpp src/Archer.cpp src/Fantassin.cpp
+SRC = src/main.cpp src/Attaquable.cpp src/Jeu.cpp src/Joueur.cpp src/Base.cpp src/Case.cpp src/Unite.cpp src/Catapulte.cpp src/Archer.cpp src/Fantassin.cpp src/SuperSoldat.cpp
 OBJ_FILES = $(SRC:.cpp=.o)
 OBJ_FILES_DEBUG = $(OBJ_FILES)
 
