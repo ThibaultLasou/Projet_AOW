@@ -27,6 +27,9 @@ class Joueur
 		Base& getBase() const;
 		void setBase(Base *b);
 		int cote() const;
+		std::string sonNom() const;
+		std::string toString() const;
+		void removeUnite(Unite* u); /* TODO */
 };
 
 #endif

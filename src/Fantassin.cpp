@@ -1,3 +1,5 @@
+#include <sstream>
+#include "Joueur.hpp"
 #include "Fantassin.hpp"
 
 const std::vector<int> Fantassin::porteeF {1};
@@ -11,17 +13,24 @@ Fantassin::~Fantassin()
 {}
 
 
-bool Fantassin::action1()
+void Fantassin::action1()
 {
-	return false;
+	/* attaquer */
 }
 
-bool Fantassin::action2()
+void Fantassin::action2()
 {
-	return false;
+	avancer();
 }
 
-bool Fantassin::action3()
+void Fantassin::action3()
 {
-	return false;
+	/* attaquer si pas action 1 */
+}
+
+std::string Fantassin::toString() const
+{
+	std::stringstream res;
+	res << "Fantassin (" + proprio.sonNom() +") : " << vie << " PV";
+	return res.str();
 }

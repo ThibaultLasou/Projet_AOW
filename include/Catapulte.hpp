@@ -12,11 +12,12 @@ class Catapulte : public Unite
         static const std::vector<int> porteeC;
 
 		Catapulte(Joueur &propri);
-		~Catapulte();
+		virtual ~Catapulte();
 
-		bool action1();
-		bool action2();
-		bool action3();
+		virtual void action1() override; /*  TODO */
+		virtual void action2() override; 
+		virtual void action3() override; /* TODO */
+		virtual std::string toString() const override;
 };
 
 

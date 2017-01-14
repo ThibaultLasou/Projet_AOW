@@ -1,3 +1,5 @@
+#include <sstream>
+#include "Joueur.hpp"
 #include "Catapulte.hpp"
 
 const std::vector<int> Catapulte::porteeC {2,3,4};
@@ -10,17 +12,24 @@ Catapulte::Catapulte(Joueur &propri): Unite(propri, vieC, attC, prixC, porteeC)
 Catapulte::~Catapulte()
 {}
 
-bool Catapulte::action1()
+void Catapulte::action1()
 {
-	return false;
+	/* attaquer */
 }
 
-bool Catapulte::action2()
+void Catapulte::action2()
 {
-	return false;
+	/* rien */
 }
 
-bool Catapulte::action3()
+void Catapulte::action3()
 {
-	return false;
+	/* avancer si pas action1 */
+}
+
+std::string Catapulte::toString() const
+{
+	std::stringstream res;
+	res << "Catapulte (" + proprio.sonNom() +") : " << vie << " PV";
+	return res.str();
 }

@@ -16,6 +16,7 @@ Unite::~Unite()
 {
 	std::cerr << "Destructeur <Unite>" << std::endl;
 	saCase->setUnite(nullptr);
+	proprio.removeUnite(this);
 }
 
 bool Unite::attaquer()
