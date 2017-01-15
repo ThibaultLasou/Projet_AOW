@@ -14,7 +14,7 @@ class Joueur
 		std::string nom;
 		int tresor;
 		int sonCote;
-		std::list<Unite*> armee;
+		std::list<Unite*> armee; /*  l'unite a la fin est la plus proche de la base */
 		Base* saBase;
 
 	public :

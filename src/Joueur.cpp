@@ -21,7 +21,6 @@ Joueur::~Joueur()
 	{
 		it = armee.back();
 		delete it;
-		armee.pop_back();
 	}
 }
 
