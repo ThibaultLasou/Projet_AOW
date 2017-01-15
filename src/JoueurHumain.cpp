@@ -38,44 +38,26 @@ int JoueurHumain::choix()
                      if(getTresor() >= Fantassin::prixF)
                      {
                         std::cout << "1" << std::endl;
-
+						return FANTASSIN;
                      }
-                     else
-                     {
-                        std::cout << "1-Pas assez d'or" << std::endl;
-                     }
-                     return FANTASSIN;
-
 				}
 				case 2 :
 				{
                      if(getTresor() >= Archer::prixA)
                      {
                         std::cout << "2" << std::endl;
-
+						return ARCHER;
                      }
-                     else
-                     {
-                        std::cout << "2-Pas assez d'or" << std::endl;
-                     }
-                     return ARCHER;
-
 				}
 				case 3 :
 				{
                     if(getTresor() >= Catapulte::prixC)
                     {
                         std::cout << "3" << std::endl;
-
-
+						return CATAPULTE;
                     }
-                    else
-                     {
-                         std::cout << "3-Pas assez d'or" << std::endl;
-                     }
-                     return CATAPULTE;
+					std::cout << "4-Pas assez d'argent" << std::endl;
 				}
-				std::cout << "4-Pas assez d'argent" << std::endl;
 				default : std::cout << "Ressaisir un chiffre" << std::endl;
 			}
 		}
