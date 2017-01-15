@@ -12,7 +12,7 @@ class JoueurHumain : public Joueur
 {
 	public :
 		JoueurHumain(std::string nom, int cote);
-		virtual int choix() override;
+		virtual int choix() override; /* Ajouter une exception si Ctrl+D (cin.eof()) */
 };
 
 #endif

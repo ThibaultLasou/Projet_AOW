@@ -7,6 +7,8 @@ class Catapulte : public Unite
 {
     protected :
         bool aJoue;
+		bool attaquer() override; /*  TODO */
+
 	public :
         static const int vieC = 12;
 		static const int attC = 6;

@@ -29,7 +29,7 @@ class Joueur
 		int cote() const;
 		std::string sonNom() const;
 		std::string toString() const;
-		void removeUnite(Unite* u); /* TODO */
+		void removeUnite(Unite* u); /* TODO : ajouter une exception si u pas dans la liste*/
 		int getTresor() const;
 };
 

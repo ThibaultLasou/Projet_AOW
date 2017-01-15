@@ -39,3 +39,8 @@ std::string Catapulte::toString() const
 	res << "Catapulte (" + proprio.sonNom() +") : " << vie << " PV";
 	return res.str();
 }
+
+bool Catapulte::attaquer()
+{
+	return false;
+}
