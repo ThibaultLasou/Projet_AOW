@@ -5,6 +5,8 @@
 
 class Catapulte : public Unite
 {
+    protected :
+        bool aJoue;
 	public :
         static const int vieC = 12;
 		static const int attC = 6;
@@ -15,7 +17,7 @@ class Catapulte : public Unite
 		virtual ~Catapulte();
 
 		virtual void action1() override; /*  TODO */
-		virtual void action2() override; 
+		virtual void action2() override;
 		virtual void action3() override; /* TODO */
 		virtual std::string toString() const override;
 };

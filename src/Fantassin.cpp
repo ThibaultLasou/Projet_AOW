@@ -15,7 +15,9 @@ Fantassin::~Fantassin()
 
 void Fantassin::action1()
 {
-	/* attaquer */
+/* attaquer */
+    aJoue = attaquer();
+
 }
 
 void Fantassin::action2()
@@ -26,6 +28,11 @@ void Fantassin::action2()
 void Fantassin::action3()
 {
 	/* attaquer si pas action 1 */
+	if(!aJoue)
+	{
+        attaquer();
+        aJoue = false;
+	}
 }
 
 std::string Fantassin::toString() const

@@ -38,15 +38,15 @@ int Joueur::choix()
     {
         if(tresor >= Catapulte::prixC) //choisir une catapulte
         {
-            return 3;
+            return CATAPULTE;
         }
         else if(tresor >= Archer::prixA) // choisir un archer
         {
-            return 2;
+            return ARCHER;
         }
        else //choisir un fantassin
         {
-            return 1;
+            return FANTASSIN;
         }
 
     }
@@ -164,4 +164,9 @@ void Joueur::removeUnite(Unite* u)
         }
         it++ ;
     }
+}
+
+int Joueur::getTresor() const
+{
+    return tresor;
 }
