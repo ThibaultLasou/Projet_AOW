@@ -3,9 +3,13 @@
 #include "Fantassin.hpp"
 #include "Archer.hpp"
 #include "Catapulte.hpp"
+#include "NotInListException.hpp"
+#include "CinException.hpp"
 
 #include <iostream>
 #include <sstream>
+
+#include <algorithm>  // pour std::find
 
 Joueur::Joueur(std::string nom, int cote) :
 	nom(nom), tresor(0), sonCote(cote), armee()
@@ -55,42 +59,50 @@ int Joueur::choix()
 void Joueur::acheter()
 {
     std::cout<<"joueur "<<nom<<" : ";
-    int choixUnite = choix();
-    switch(choixUnite)
-    {
-        case -1:
+    try{
+        int choixUnite = choix();
+        switch(choixUnite)
         {
-            std::cout<<"La base n'est pas libre";
-            break;
+            case -1:
+            {
+                std::cout<<"La base n'est pas libre";
+                break;
+            }
+            case 0:
+            {
+                std::cout<<"Pas assez d'or";
+                break;
+            }
+            case 1:
+            {
+                tresor -= Fantassin::prixF;
+                this->armee.push_back(new Fantassin(*this));
+                std::cout<<"Achat d'un fantassin";
+                break;
+            }
+            case 2:
+            {
+                tresor -= Archer::prixA;
+                this->armee.push_back(new Archer(*this));
+                std::cout<<"Achat d'un archer";
+                break;
+            }
+            case 3:
+            {
+                tresor -= Catapulte::prixC;
+                this->armee.push_back(new Catapulte(*this));
+                std::cout<<"Achat d'une catapulte";
+                break;
+            }
         }
-        case 0:
-        {
-            std::cout<<"Pas assez d'or";
-            break;
-        }
-        case 1:
-        {
-            tresor -= Fantassin::prixF;
-            this->armee.push_back(new Fantassin(*this));
-            std::cout<<"Achat d'un fantassin";
-            break;
-        }
-        case 2:
-        {
-            tresor -= Archer::prixA;
-            this->armee.push_back(new Archer(*this));
-            std::cout<<"Achat d'un archer";
-            break;
-        }
-        case 3:
-        {
-            tresor -= Catapulte::prixC;
-            this->armee.push_back(new Catapulte(*this));
-            std::cout<<"Achat d'une catapulte";
-            break;
-        }
+        std::cout<<" (or restant : "<<tresor<<")"<<std::endl;
     }
-    std::cout<<" (or restant : "<<tresor<<")"<<std::endl;
+    catch ( const std::exception & e )
+    {
+        std::cout << "Juste apres catch" << std::endl;
+        std::cerr <<"Exception : " <<e.what() << "\n";
+        return;
+    }
 }
 
 Base& Joueur::getBase() const
@@ -153,16 +165,16 @@ std::string Joueur::toString() const
 /* enleve une unité morte de l'armée du joueur */
 void Joueur::removeUnite(Unite* u)
 {
-    std::list<Unite*>::iterator it = armee.begin() ;
-
-    while(it != armee.end())
+    std::list<Unite*>::iterator it;
+    it = std::find (armee.begin(), armee.end(), u);// std::find sert a verifier si l'unite u est dans la list armee
+    if (it != armee.end()) //L'unite u appartient à larmee
     {
-        if(*it == u)
-        {
-            it = armee.erase(it) ;
-            return;
-        }
-        it++ ;
+        it = armee.erase(it) ;
+        return;
+    }
+    else // u n'est pas dans la
+    {
+        throw NotInListException();
     }
 }
 

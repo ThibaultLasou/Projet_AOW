@@ -26,7 +26,7 @@ bool Unite::attaquer()
 		Case *nextCase = this->saCase->getCase(i, proprio.cote());
 		if(!nextCase->estLibre())
 		{
-			if(nextCase->cible()->estEnnemi(*this))
+			if(nextCase->cible()->estEnnemi(*this)) /* cible vaut nul*/
 			{
 				nextCase->cible()->recevoirDegats(this->attaque);
 				return true;
@@ -39,7 +39,7 @@ bool Unite::attaquer()
 
 bool Unite::avancer()
 {
-	
+
 	Case *nextCase = this->saCase->getCase(1, proprio.cote());
 	if(nextCase != nullptr && nextCase->estLibre())
 	{

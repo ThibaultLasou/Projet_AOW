@@ -1,10 +1,12 @@
 #include "Jeu.hpp"
 #include "Base.hpp"
 #include "JoueurHumain.hpp"
+#include "NotInListException.hpp"
 
 #include <iterator>
 #include <iostream>
 #include <sstream>
+#include <exception>
 
 Jeu::Jeu(std::string nomJ1, std::string nomJ2, int tourMax, int orTour, int cases) :
 	nbTourMax(tourMax), nbTour(0), orParTour(orTour), nbCases(cases)
@@ -51,9 +53,10 @@ void Jeu::tourDeJeu()
        joueur->jouer();
     }
 }
-
+/* throw exception si Case pas dans Terrain */
 Case* Jeu::getNextCase(const Case *c, int dir, int delta) const
 {
+
 	std::list<Case*>::const_iterator it;
 	for(it=this->leTerrain.begin();it!= this->leTerrain.end();++it)
 	{
@@ -78,6 +81,31 @@ Case* Jeu::getNextCase(const Case *c, int dir, int delta) const
 		}
 	}
 	return *it;
+	/*
+	it = std::find(leTerrain.begin(), leTerrain.end(), c);// std::find sert a verifier si la case c est dans la list leTerrain
+
+    if (it != leTerrain.end()) //La case appartient à la liste leTerrain
+    {
+        std::cout << "Element found : " << *it << '\n';
+        for(int i=0;i!=dir*delta;i+=dir)
+        {
+            if(dir == -1)
+            {
+                it--;
+            }
+            else
+            {
+                it++;
+            }
+        }
+        return *it;
+    }
+    else // u n'est pas dans la liste armee
+    {
+        std::cout << "Element not found \n";
+        throw NotInListException();
+    }
+*/
 }
 
 std::string Jeu::toString() const
