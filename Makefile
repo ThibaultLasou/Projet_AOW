@@ -60,6 +60,12 @@ obj/Debug/Catapulte.o: src/Catapulte.cpp include/Joueur.hpp \
 obj/Release/Catapulte.o: src/Catapulte.cpp include/Joueur.hpp \
  include/Catapulte.hpp include/Unite.hpp include/Attaquable.hpp \
  include/Case.hpp
+obj/Debug/SuperSoldat.o: src/SuperSoldat.cpp include/SuperSoldat.hpp \
+ include/Fantassin.hpp include/Unite.hpp include/Attaquable.hpp \
+ include/Case.hpp
+obj/Release/SuperSoldat.o: src/SuperSoldat.cpp include/SuperSoldat.hpp \
+ include/Fantassin.hpp include/Unite.hpp include/Attaquable.hpp \
+ include/Case.hpp
 obj/Debug/Unite.o: src/Unite.cpp include/Unite.hpp include/Attaquable.hpp \
  include/Case.hpp include/Joueur.hpp include/Case.hpp include/Base.hpp
 obj/Release/Unite.o: src/Unite.cpp include/Unite.hpp \
@@ -79,6 +85,10 @@ obj/Debug/Case.o: src/Case.cpp include/Case.hpp include/Jeu.hpp \
 obj/Release/Case.o: src/Case.cpp include/Case.hpp include/Jeu.hpp \
  include/Joueur.hpp include/Case.hpp include/Unite.hpp \
  include/Attaquable.hpp
+obj/Debug/NotInListException.o: src/NotInListException.cpp \
+ include/NotInListException.hpp
+obj/Release/NotInListException.o: src/NotInListException.cpp \
+ include/NotInListException.hpp
 obj/Debug/Base.o: src/Base.cpp include/Joueur.hpp include/Base.hpp \
  include/Attaquable.hpp include/Case.hpp include/Attaquable.hpp \
  include/Unite.hpp
@@ -87,20 +97,30 @@ obj/Release/Base.o: src/Base.cpp include/Joueur.hpp include/Base.hpp \
  include/Unite.hpp
 obj/Debug/Jeu.o: src/Jeu.cpp include/Jeu.hpp include/Joueur.hpp \
  include/Case.hpp include/Base.hpp include/Attaquable.hpp \
- include/JoueurHumain.hpp
+ include/JoueurHumain.hpp include/NotInListException.hpp
 obj/Release/Jeu.o: src/Jeu.cpp include/Jeu.hpp include/Joueur.hpp \
  include/Case.hpp include/Base.hpp include/Attaquable.hpp \
- include/JoueurHumain.hpp
+ include/JoueurHumain.hpp include/NotInListException.hpp
 obj/Debug/Joueur.o: src/Joueur.cpp include/Joueur.hpp include/Base.hpp \
  include/Attaquable.hpp include/Case.hpp include/Fantassin.hpp \
- include/Unite.hpp include/Archer.hpp include/Catapulte.hpp
+ include/Unite.hpp include/Archer.hpp include/Catapulte.hpp \
+ include/NotInListException.hpp include/CinException.hpp
 obj/Release/Joueur.o: src/Joueur.cpp include/Joueur.hpp include/Base.hpp \
  include/Attaquable.hpp include/Case.hpp include/Fantassin.hpp \
- include/Unite.hpp include/Archer.hpp include/Catapulte.hpp
+ include/Unite.hpp include/Archer.hpp include/Catapulte.hpp \
+ include/NotInListException.hpp include/CinException.hpp
 obj/Debug/JoueurHumain.o: src/JoueurHumain.cpp include/JoueurHumain.hpp \
- include/Joueur.hpp
+ include/Joueur.hpp include/Joueur.hpp include/Base.hpp \
+ include/Attaquable.hpp include/Case.hpp include/Fantassin.hpp \
+ include/Unite.hpp include/Archer.hpp include/Catapulte.hpp \
+ include/CinException.hpp
 obj/Release/JoueurHumain.o: src/JoueurHumain.cpp include/JoueurHumain.hpp \
- include/Joueur.hpp
+ include/Joueur.hpp include/Joueur.hpp include/Base.hpp \
+ include/Attaquable.hpp include/Case.hpp include/Fantassin.hpp \
+ include/Unite.hpp include/Archer.hpp include/Catapulte.hpp \
+ include/CinException.hpp
+obj/Debug/CinException.o: src/CinException.cpp include/CinException.hpp
+obj/Release/CinException.o: src/CinException.cpp include/CinException.hpp
 obj/Debug/main.o: src/main.cpp include/Jeu.hpp include/Joueur.hpp \
  include/Case.hpp
 obj/Release/main.o: src/main.cpp include/Jeu.hpp include/Joueur.hpp \

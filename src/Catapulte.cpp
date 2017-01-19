@@ -42,5 +42,30 @@ std::string Catapulte::toString() const
 
 bool Catapulte::attaquer()
 {
+	for(int i : portee)
+	{
+		Case *nextCase = this->saCase->getCase(i, proprio.cote());
+		if(nextCase != nullptr)
+		{
+			if(!nextCase->estLibre())
+			{
+				if(nextCase->cible()->estEnnemi(*this)) 
+				{
+					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
+					Case *nextCase2 = this->saCase->getCase(i+1*proprio.cote(), proprio.cote());
+					if(nextCase2 != nullptr)
+					{
+						if(!nextCase2->estLibre())
+						{
+							proprio.ajoutArgent(nextCase2->cible()->recevoirDegats(this->attaque));
+						}
+					}
+					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
+					return true;
+				}
+			}
+		}
+	}
 	return false;
 }
+

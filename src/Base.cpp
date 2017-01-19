@@ -1,3 +1,5 @@
+#include <sstream>
+#include "Jeu.hpp"
 #include "Joueur.hpp"
 #include "Base.hpp"
 #include "Attaquable.hpp"
@@ -36,7 +38,7 @@ bool Base::peutSpawn() const
 
 Attaquable* Base::cible()
 {
-	if(occupe == nullptr)
+	if(occupe != nullptr)
 	{
 		return occupe;
 	}
@@ -44,4 +46,16 @@ Attaquable* Base::cible()
 	{
 		return this;
 	}
+}
+
+void Base::mort()
+{
+	this->leJeu.fin(&(this->proprio));
+}
+
+std::string Base::toString() const
+{
+	std::stringstream res;
+	res << Case::toString() << " Base : " << this->vie << " PV";
+	return res.str();
 }

@@ -24,22 +24,23 @@ bool Unite::attaquer()
 	for(int i : portee)
 	{
 		Case *nextCase = this->saCase->getCase(i, proprio.cote());
-		if(!nextCase->estLibre())
+		if(nextCase != nullptr)
 		{
-			if(nextCase->cible()->estEnnemi(*this)) /* cible vaut nul*/
+			if(!nextCase->estLibre())
 			{
-				nextCase->cible()->recevoirDegats(this->attaque);
-				return true;
+				if(nextCase->cible()->estEnnemi(*this)) 
+				{
+					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
+					return true;
+				}
 			}
 		}
 	}
 	return false;
-
 }
 
 bool Unite::avancer()
 {
-
 	Case *nextCase = this->saCase->getCase(1, proprio.cote());
 	if(nextCase != nullptr && nextCase->estLibre())
 	{
@@ -53,3 +54,15 @@ bool Unite::avancer()
 		return false;
 	}
 }
+
+int Unite::recevoirDegats(int deg)
+{
+    int gold = 0;
+	vie -= deg;
+	if(vie <= 0)
+	{
+		gold = this->prix;
+		mort();
+	}
+	return gold;
+}	

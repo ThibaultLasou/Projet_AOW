@@ -49,6 +49,6 @@ std::string Case::toString() const
 	}
 	else
 	{
-		return "Case vide";
+		return "vide";
 	}
 }

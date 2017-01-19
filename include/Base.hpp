@@ -14,6 +14,8 @@ class Base : public Case, public Attaquable
 		Attaquable* cible() override;
 		
 		bool peutSpawn() const;
+		void mort();
+		std::string toString() const;
 };
 
 #endif

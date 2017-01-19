@@ -38,6 +38,7 @@ Jeu::~Jeu()
 		delete leTerrain.back();
 		leTerrain.pop_back();
 	}
+	std::cerr << "Fin Destructeur <Jeu>" << std::endl;
 }
 
 void Jeu::tourDeJeu()
@@ -118,8 +119,24 @@ std::string Jeu::toString() const
 	}
 	for(Case *c : leTerrain)
 	{
-		res << "Case " << i << " : " << c->toString() << std::endl;;
+		res << "Case " << i << " : " << c->toString() << std::endl;
 		i++;
 	}
 	return res.str();
+}
+
+void Jeu::fin(Joueur* perdant)
+{
+	Joueur* gagnant;
+	if(joueurs[0] == perdant)
+	{
+		gagnant = joueurs[1];
+	}
+	else
+	{
+		gagnant = joueurs[0];
+	}
+	std::cout<< "Joueur "<< gagnant->sonNom() << " a gagné " << std::endl;
+	this->~Jeu();
+	exit(EXIT_SUCCESS);
 }

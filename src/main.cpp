@@ -5,7 +5,7 @@
 int main()
 {
 	Jeu j("X","Y");
-	for(int i=0;i<15;i++)
+	while(true)
 	{
 		j.tourDeJeu();
 	}

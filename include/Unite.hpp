@@ -8,13 +8,12 @@ class Case;
 
 class Unite : public Attaquable
 {
-	private :
+	protected :
 		int attaque;
-		int prix; /*  TODO : voir si c'est utile */
+		int prix; 
 		std::vector<int> portee;
 		Case* saCase;
 
-	protected :
 		virtual bool attaquer();
 		virtual bool avancer();
 
@@ -26,6 +25,7 @@ class Unite : public Attaquable
 		virtual void action2() = 0;
 		virtual void action3() = 0;
 		virtual std::string toString() const = 0;
+		virtual int recevoirDegats(int deg);
 };
 
 #endif

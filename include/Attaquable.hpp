@@ -12,10 +12,10 @@ class Attaquable
 		int vie;
 		Joueur &proprio;
 
-		public :
+	public :
 		Attaquable(Joueur &propri, int pv);
 		virtual ~Attaquable();
-		virtual resultAttaque* recevoirDegats(int deg);
+		virtual int recevoirDegats(int deg);
 		virtual void mort();
 		bool estEnnemi(const Attaquable &a) const;
 };

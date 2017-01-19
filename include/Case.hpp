@@ -21,7 +21,6 @@ class Case
 		void setUnite(Unite *newUnit);
 		virtual	Attaquable* cible();
 		virtual std::string toString() const;
-		int test;
 };
 
 

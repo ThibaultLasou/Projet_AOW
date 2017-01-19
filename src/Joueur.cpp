@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <sstream>
-
 #include <algorithm>  // pour std::find
 
 Joueur::Joueur(std::string nom, int cote) :
@@ -73,21 +72,21 @@ void Joueur::acheter()
                 std::cout<<"Pas assez d'or";
                 break;
             }
-            case 1:
+            case FANTASSIN:
             {
                 tresor -= Fantassin::prixF;
                 this->armee.push_back(new Fantassin(*this));
                 std::cout<<"Achat d'un fantassin";
                 break;
             }
-            case 2:
+            case ARCHER:
             {
                 tresor -= Archer::prixA;
                 this->armee.push_back(new Archer(*this));
                 std::cout<<"Achat d'un archer";
                 break;
             }
-            case 3:
+            case CATAPULTE:
             {
                 tresor -= Catapulte::prixC;
                 this->armee.push_back(new Catapulte(*this));
@@ -97,7 +96,7 @@ void Joueur::acheter()
         }
         std::cout<<" (or restant : "<<tresor<<")"<<std::endl;
     }
-    catch ( const std::exception & e )
+    catch(const std::exception &e)
     {
         std::cout << "Juste apres catch" << std::endl;
         std::cerr <<"Exception : " <<e.what() << "\n";

@@ -13,16 +13,14 @@ Attaquable::~Attaquable()
 	std::cerr << "Destructeur <Attaquable>" << std::endl;
 }
 
-resultAttaque* Attaquable::recevoirDegats(int deg)
+int Attaquable::recevoirDegats(int deg)
 {
-	resultAttaque *res = new resultAttaque;
     vie -= deg;
 	if(vie <= 0)
 	{
-		res->fatal = true;
 		mort();
 	}
-	return res;
+	return 0;
 }
 
 void Attaquable::mort()
