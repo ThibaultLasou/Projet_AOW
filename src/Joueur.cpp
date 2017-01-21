@@ -99,7 +99,6 @@ void Joueur::acheter()
     }
     catch(const std::exception &e)
     {
-        std::cout << "Juste apres catch" << std::endl;
         std::cerr <<"Exception : " <<e.what() << "\n";
         return;
     }

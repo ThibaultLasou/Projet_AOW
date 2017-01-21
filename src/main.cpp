@@ -2,6 +2,7 @@
 
 #include "Jeu.hpp"
 
+/* Programme principal*/
 int main()
 {
 	Jeu j("X","Y");

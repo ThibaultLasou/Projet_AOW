@@ -23,7 +23,6 @@ int JoueurHumain::choix()
 		std::cin >> c;
             if(std::cin.eof())
             {
-                std::cout << "dans le if" << std::endl;
                 throw CinException();
             }
             else if(!std::cin.fail())
