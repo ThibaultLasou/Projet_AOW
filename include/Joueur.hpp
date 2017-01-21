@@ -7,6 +7,7 @@
 
 class Unite;
 class Base;
+class Jeu;
 
 class Joueur
 {
@@ -22,7 +23,7 @@ class Joueur
 		virtual ~Joueur();
 		virtual int choix();
 		void acheter();
-        void jouer();
+        void jouer(Jeu &jeu);
 		void ajoutArgent(int montant);
 		Base& getBase() const;
 		void setBase(Base *b);

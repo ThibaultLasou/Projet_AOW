@@ -1,6 +1,6 @@
 #ifndef __ATTAQ_H__
 #define __ATTAQ_H__
-
+#include <string>
 class Joueur;
 
 typedef enum {BASE=0, FANTASSIN, ARCHER, CATAPULTE, SUPERS} E_type;
@@ -17,6 +17,7 @@ class Attaquable
 		virtual ~Attaquable();
 		virtual int recevoirDegats(int deg);
 		virtual void mort();
+		virtual std::string toString() const =0;
 		bool estEnnemi(const Attaquable &a) const;
 };
 

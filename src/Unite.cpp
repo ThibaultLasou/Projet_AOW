@@ -30,12 +30,14 @@ bool Unite::attaquer()
 			{
 				if(nextCase->cible()->estEnnemi(*this)) 
 				{
+					afficheAtt(nextCase->cible());
 					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
 					return true;
 				}
 			}
 		}
 	}
+	afficheAtt(nullptr);
 	return false;
 }
 
@@ -52,6 +54,18 @@ bool Unite::avancer()
 	else
 	{
 		return false;
+	}
+}
+
+void Unite::afficheAtt(Attaquable *a)
+{
+	if(a == nullptr)
+	{
+		std::cout << this->toString() << " n'a pas attaqué" << std::endl;
+	}
+	else
+	{
+		std::cout << this->toString() << " attaque " << a->toString() << std::endl;
 	}
 }
 

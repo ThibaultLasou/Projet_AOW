@@ -3,6 +3,7 @@
 #include "Fantassin.hpp"
 #include "Archer.hpp"
 #include "Catapulte.hpp"
+#include "Jeu.hpp"
 #include "NotInListException.hpp"
 #include "CinException.hpp"
 
@@ -57,7 +58,7 @@ int Joueur::choix()
 
 void Joueur::acheter()
 {
-    std::cout<<"joueur "<<nom<<" : ";
+    std::cout<< sonNom() << " : ";
     try{
         int choixUnite = choix();
         switch(choixUnite)
@@ -109,24 +110,27 @@ Base& Joueur::getBase() const
 	return *saBase;
 }
 
-void Joueur::jouer()
+void Joueur::jouer(Jeu &jeu)
 {
     std::list<Unite*>::const_iterator it_before = armee.begin();
     --it_before;
     std::list<Unite*>::const_iterator it;
-    for( it = armee.end(), it--; it != it_before; --it)
+    for(it = armee.end(), it--; it != it_before; --it)
     {
        (*it)->action1();
+	   std::cout << jeu.toString();
     }
 
     for( it = armee.begin(); it != armee.end(); it++)
     {
        (*it)->action2();
+	   std::cout << jeu.toString();
     }
 
     for( it = armee.begin(); it != armee.end(); it++)
     {
        (*it)->action3();
+	   std::cout << jeu.toString();
     }
     acheter();
 }

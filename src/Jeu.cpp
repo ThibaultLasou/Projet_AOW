@@ -43,6 +43,9 @@ Jeu::~Jeu()
 
 void Jeu::tourDeJeu()
 {
+	std::cout << "===========" << std::endl
+			  << " Tour " << nbTour << std::endl
+			  << "===========" << std::endl << std::endl;
 	std::cout << toString();
     for(Joueur* joueur : joueurs)
     {
@@ -51,8 +54,9 @@ void Jeu::tourDeJeu()
 
     for(Joueur* joueur : joueurs)
     {
-       joueur->jouer();
+       joueur->jouer(*this);
     }
+	nbTour++;
 }
 /* throw exception si Case pas dans Terrain */
 Case* Jeu::getNextCase(const Case *c, int dir, int delta) const
@@ -115,7 +119,7 @@ std::string Jeu::toString() const
 	int i = 0;
 	for(Joueur *j : joueurs)
 	{
-		res << j->toString() << std::endl;
+		res << j->toString();
 	}
 	for(Case *c : leTerrain)
 	{

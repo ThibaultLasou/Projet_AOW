@@ -26,6 +26,7 @@ class Unite : public Attaquable
 		virtual void action3() = 0;
 		virtual std::string toString() const = 0;
 		virtual int recevoirDegats(int deg);
+		virtual void afficheAtt(Attaquable *a);
 };
 
 #endif
