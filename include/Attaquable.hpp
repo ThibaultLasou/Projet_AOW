@@ -1,6 +1,8 @@
 #ifndef __ATTAQ_H__
 #define __ATTAQ_H__
 #include <string>
+
+#include "Mstream.hpp"
 class Joueur;
 
 /* Enumeration des types d'd'attaquable existants */
@@ -70,4 +72,5 @@ struct _resultAttaque
 	int valeur;
 };
 
+extern mstream mout;
 #endif
