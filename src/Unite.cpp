@@ -9,13 +9,11 @@
 Unite::Unite(Joueur &propri, int pv, int att, int _prix, std::vector<int> _portee, A_type _type) :
 	Attaquable(propri, pv, _type), attaque(att), prix(_prix), portee(_portee), saCase(&(propri.getBase()))
 {
-	std::cerr << "Constructeur <Unite>" << std::endl;
 	saCase->setUnite(this);
 }
 
 Unite::~Unite()
 {
-	std::cerr << "Destructeur <Unite>" << std::endl;
 	saCase->setUnite(nullptr);
 	proprio.removeUnite(this);
 }

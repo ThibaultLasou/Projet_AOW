@@ -5,6 +5,7 @@
 #include "Archer.hpp"
 #include "Catapulte.hpp"
 #include "CinException.hpp"
+
 JoueurHumain::JoueurHumain(std::string nom, int cote) : Joueur(nom, cote)
 {
 
@@ -23,7 +24,7 @@ int JoueurHumain::choix()
 		std::cin >> c;
             if(std::cin.eof())
             {
-                throw CinException();
+				throw CinException();
             }
             else if(!std::cin.fail())
             {
@@ -31,33 +32,29 @@ int JoueurHumain::choix()
                 {
                     case 0 :
                     {
-						mstream::mout << "Pas d'achat" << std::endl;
                         return 0;
                     }
-                    case 1 :
+                    case FANTASSIN :
                     {
                          if(getTresor() >= Fantassin::Prix)
                          {
-                            mstream::mout << "1" << std::endl;
                             return FANTASSIN;
                          }
                     }
-                    case 2 :
+                    case ARCHER :
                     {
                          if(getTresor() >= Archer::Prix)
                          {
-                            mstream::mout << "2" << std::endl;
                             return ARCHER;
                          }
                     }
-                    case 3 :
+                    case CATAPULTE :
                     {
                         if(getTresor() >= Catapulte::Prix)
                         {
-                            mstream::mout << "3" << std::endl;
                             return CATAPULTE;
                         }
-                        mstream::mout << "4-Pas assez d'argent" << std::endl;
+                        mstream::mout << "Pas assez d'argent" << std::endl;
                     }
                     default : mstream::mout << "Ressaisir un chiffre" << std::endl;
                 }

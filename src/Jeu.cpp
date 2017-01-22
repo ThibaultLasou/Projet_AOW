@@ -11,10 +11,10 @@
 Jeu::Jeu(std::string nomJ1, std::string nomJ2, int tourMax, int orTour, int cases) :
 	nbTourMax(tourMax), nbTour(0), orParTour(orTour), nbCases(cases)
 {
-	std::cerr << "Constructeur <Jeu>" << std::endl;
-
-	Joueur *j = new JoueurHumain(nomJ1, 1);
-	JoueurHumain *j2 = new JoueurHumain(nomJ2, -1);
+	Joueur *j = new Joueur(nomJ1, 1);
+/* 	Joueur *j = new JoueurHumain(nomJ1, 1); */
+	Joueur *j2 = new Joueur(nomJ2, -1);
+/* 	Joueur *j2 = new JoueurHumain(nomJ2, -1);*/
 	joueurs.push_back(j);
 	joueurs.push_back(j2);
 	leTerrain.push_back(new Base(*this, *joueurs[0]));
@@ -27,7 +27,6 @@ Jeu::Jeu(std::string nomJ1, std::string nomJ2, int tourMax, int orTour, int case
 
 Jeu::~Jeu()
 {
-	std::cerr << "Destructeur <Jeu>" << std::endl;
 	while(!joueurs.empty())
 	{
 		delete joueurs.back();
@@ -38,7 +37,6 @@ Jeu::~Jeu()
 		delete leTerrain.back();
 		leTerrain.pop_back();
 	}
-	std::cerr << "Fin Destructeur <Jeu>" << std::endl;
 }
 
 void Jeu::tourDeJeu()

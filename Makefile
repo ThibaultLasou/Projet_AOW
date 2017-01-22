@@ -15,9 +15,9 @@ OBJ_D = $(CLASSES:%=$(ODIR_D)%.o)
 MOBJ = $(ODIR_R)main.o
 MOBJ_D = $(ODIR_D)main.o
 
-Debug : $(EXEC_DEBUG)
-
 Release : $(EXEC_RELEASE)
+
+Debug : $(ODIR_D)$(EXEC_DEBUG)
 
 clean :
 	rm $(OBJ) $(OBJ_D) $(MOBJ_D) $(MOBJ)
@@ -42,12 +42,19 @@ $(ODIR_R)%.o: $(SDIR)%.cpp
 	$(CC) -o $@ -c $< $(CXXFLAGS)
 
 depend : $(CLASSES)
-	$(CC) -MM $(CXXFLAGS) $(SDIR)main.cpp -MT $(ODIR_D)main.o >> Makefile;
-	$(CC) -MM $(CXXFLAGS) $(SDIR)main.cpp -MT $(ODIR_R)main.o >> Makefile;
+	$(CC) -MM $(CXXFLAGS) $(SDIR)main.cpp -MT $(ODIR_D)main.o >> Makefile
+	$(CC) -MM $(CXXFLAGS) $(SDIR)main.cpp -MT $(ODIR_R)main.o >> Makefile
 
 $(CLASSES) : 
-	$(CC) -MM $(CXXFLAGS) $(SDIR)$@.cpp -MT $(ODIR_D)$@.o >> Makefile;
-	$(CC) -MM $(CXXFLAGS) $(SDIR)$@.cpp -MT $(ODIR_R)$@.o >> Makefile;
+	$(CC) -MM $(CXXFLAGS) $(SDIR)$@.cpp -MT $(ODIR_D)$@.o >> Makefile
+	$(CC) -MM $(CXXFLAGS) $(SDIR)$@.cpp -MT $(ODIR_R)$@.o >> Makefile
+
+$(ODIR_R) :
+	@mkdir -p $@
+
+$(ODIR_D) :
+	@mkdir -p $@
+
 
 obj/Debug/Archer.o: src/Archer.cpp include/Joueur.hpp include/Archer.hpp \
  include/Unite.hpp include/Attaquable.hpp include/Case.hpp

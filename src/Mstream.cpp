@@ -4,7 +4,7 @@ mstream mstream::mout;
 
 mstream::mstream()
 {
-    coss.open("myFile.txt");
+    coss.open("logPartie.txt");
 }
 
 mstream::~mstream()

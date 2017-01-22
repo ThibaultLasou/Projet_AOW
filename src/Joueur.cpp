@@ -14,12 +14,10 @@
 Joueur::Joueur(std::string nom, int cote) :
 	nom(nom), tresor(0), sonCote(cote), armee()
 {
-	std::cerr << "Constructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
 }
 
 Joueur::~Joueur()
 {
-	std::cerr << "Destructeur <Joueur>\t" << this->nom <<  "\t" << this << std::endl;
 	Unite* it;
 	while(!armee.empty())
 	{
@@ -100,7 +98,7 @@ void Joueur::acheter()
 	catch(const std::exception &e)
 	{
 		std::cerr <<"Exception : " <<e.what() << "\n";
-		return;
+		abort();
 	}
 }
 
