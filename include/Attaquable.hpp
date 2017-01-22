@@ -3,7 +3,7 @@
 #include <string>
 class Joueur;
 
-/* Enumeration des types d'unites existantes */
+/* Enumeration des types d'd'attaquable existants */
 typedef enum {BASE=0, FANTASSIN, ARCHER, CATAPULTE, SUPERS} E_type;
 typedef struct _resultAttaque resultAttaque;
 

@@ -7,6 +7,7 @@ class Jeu;
 class Unite;
 class Attaquable;
 
+/* Une case est un element de l'aire de jeu*/
 class Case
 {
 	protected :
