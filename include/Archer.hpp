@@ -9,10 +9,10 @@ class Archer : public Unite
     protected :
         bool aJoue;                 /* booléen qui va servir pour effectuer les actions 1-2-3*/
 	public :
-        static const int vieA = 8;  /* un archer a 8 points de vie*/
-		static const int attA = 3;  /* un archer a 3 points d'attaque*/
-		static const int prixA = 12;/* un archer vaut 12 pieces d'or*/
-        static const std::vector<int> porteeA; /* un archer a une portée de 1, 2 ou 3 */
+        static const int Vie = 8;  /* un archer a 8 points de vie*/
+		static const int Attaque = 3;  /* un archer a 3 points d'attaque*/
+		static const int Prix = 12;/* un archer vaut 12 pieces d'or*/
+        static const std::vector<int> Portee; /* un archer a une portée de 1, 2 ou 3 */
 
         /* Constructeur : Archer
          * Entrees :

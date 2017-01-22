@@ -38,7 +38,7 @@ class Unite : public Attaquable
          *  - port, designe la portee de l'unite
          * Fait appel au constructeur d'Attaquable comme c'est une redéfintion
          */
-		Unite(Joueur& propri, int pv, int attaque, int prix, std::vector<int> port);
+		Unite(Joueur& propri, int pv, int att, int prix, std::vector<int> portee);
 
         /* Destructeur : ~Unite
          * Permet de détruire l'objet

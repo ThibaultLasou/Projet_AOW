@@ -9,10 +9,10 @@ class Fantassin : public Unite
     protected :
         bool aJoue;                             /* booléen qui va servir pour effectuer les actions 1-2-3*/
 	public :
-        static const int vieF = 10;             /* un fantassin a 10 points de vie*/
-		static const int attF = 4;              /* un fantassin  a 4 points d'attaque*/
-		static const int prixF = 10;            /*un fantassin  vaut 10 pieces d'or*/
-		static const std::vector<int> porteeF;  /* un fantassin  a une portée de 1 */
+        static const int Vie = 10;             /* un fantassin a 10 points de vie*/
+		static const int Attaque = 4;              /* un fantassin  a 4 points d'attaque*/
+		static const int Prix = 10;            /*un fantassin  vaut 10 pieces d'or*/
+		static const std::vector<int> Portee;  /* un fantassin  a une portée de 1 */
 
         /* Constructeur : Fantassin
          * Entrees :

@@ -2,9 +2,9 @@
 #include "Joueur.hpp"
 #include "Fantassin.hpp"
 
-const std::vector<int> Fantassin::porteeF {1};
+const std::vector<int> Fantassin::Portee {1};
 
-Fantassin::Fantassin(Joueur &propri): Unite(propri, vieF, attF, prixF, porteeF), aJoue(false)
+Fantassin::Fantassin(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee), aJoue(false)
 {
 
 }
@@ -15,9 +15,7 @@ Fantassin::~Fantassin()
 
 void Fantassin::action1()
 {
-/* attaquer */
     aJoue = attaquer();
-
 }
 
 void Fantassin::action2()
@@ -27,7 +25,6 @@ void Fantassin::action2()
 
 void Fantassin::action3()
 {
-	/* attaquer si pas action 1 */
 	if(!aJoue)
 	{
         attaquer();

@@ -2,9 +2,9 @@
 #include "Joueur.hpp"
 #include "Archer.hpp"
 
-const std::vector<int> Archer::porteeA {1,2,3};
+const std::vector<int> Archer::Portee {1,2,3};
 
-Archer::Archer(Joueur &propri): Unite(propri, vieA, attA, prixA, porteeA)
+Archer::Archer(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee)
 {
 
 }

@@ -36,7 +36,7 @@ int JoueurHumain::choix()
                     }
                     case 1 :
                     {
-                         if(getTresor() >= Fantassin::prixF)
+                         if(getTresor() >= Fantassin::Prix)
                          {
                             std::cout << "1" << std::endl;
                             return FANTASSIN;
@@ -44,7 +44,7 @@ int JoueurHumain::choix()
                     }
                     case 2 :
                     {
-                         if(getTresor() >= Archer::prixA)
+                         if(getTresor() >= Archer::Prix)
                          {
                             std::cout << "2" << std::endl;
                             return ARCHER;
@@ -52,7 +52,7 @@ int JoueurHumain::choix()
                     }
                     case 3 :
                     {
-                        if(getTresor() >= Catapulte::prixC)
+                        if(getTresor() >= Catapulte::Prix)
                         {
                             std::cout << "3" << std::endl;
                             return CATAPULTE;

@@ -17,10 +17,10 @@ class Catapulte : public Unite
 		bool attaquer() override;
 
 	public :
-        static const int vieC = 12;            /* une catapulte a 12 points de vie*/
-		static const int attC = 6;             /* une catapulte a 6 points d'attaque*/
-		static const int prixC = 20;           /* une catapulte vaut 20 pieces d'or*/
-        static const std::vector<int> porteeC; /* une catapulte a une portée de 2, 3 ou 4 */
+        static const int Vie = 12;            /* une catapulte a 12 points de vie*/
+		static const int Attaque = 6;             /* une catapulte a 6 points d'attaque*/
+		static const int Prix = 20;           /* une catapulte vaut 20 pieces d'or*/
+        static const std::vector<int> Portee; /* une catapulte a une portée de 2, 3 ou 4 */
 
         /* Constructeur : Catapulte
          * Entrees :

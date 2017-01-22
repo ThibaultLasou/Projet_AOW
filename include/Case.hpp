@@ -10,9 +10,12 @@ class Attaquable;
 /* Une case est un element de l'aire de jeu*/
 class Case
 {
+	private:
+		static int nbCases;
 	protected :
 		Jeu &leJeu;     /* L'aire de jeu auquel la case appartient*/
 		Unite *occupe;  /* L'unite qui occupe la case*/
+		int num;
 
 	public :
 

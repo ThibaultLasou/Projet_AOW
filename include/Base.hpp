@@ -9,13 +9,14 @@
 class Base : public Case, public Attaquable
 {
 	public :
+		static const int Vie = 100;
         /* Constructeur : Base
          *  - jeu : L'aire de jeu auquel la case appartient
          *  - proprio : proprietaire de la base
          *  - pv, designe les points de vie et vaut 100 à l'initialisation
          * Fait appel au constructeurs de Case et Attaquable car c'est une sous-classe
          */
-		Base(Jeu &jeu, Joueur &propri, int vie=100);
+		Base(Jeu &jeu, Joueur &propri);
 
         /* Destructeur : ~Base*/
 		~Base();

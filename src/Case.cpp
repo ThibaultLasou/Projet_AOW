@@ -4,14 +4,18 @@
 
 #include <iostream>
 
-Case::Case(Jeu &jeu) : leJeu(jeu), occupe(nullptr)
+int Case::nbCases = 0;
+
+Case::Case(Jeu &jeu) : leJeu(jeu), occupe(nullptr), num(nbCases)
 {
 	std::cerr << "Constructeur <Case>" << std::endl;
+	nbCases++;
 }
 
 Case::~Case()
 {
 	std::cerr << "Destructeur <Case>" << std::endl;
+	nbCases--;
 }
 
 bool Case::estLibre() const

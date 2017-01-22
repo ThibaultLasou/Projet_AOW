@@ -34,17 +34,17 @@ int Joueur::choix()
     {
         return -1;
     }
-    else if(tresor < Fantassin::prixF)
+    else if(tresor < Fantassin::Prix)
     {
         return 0;
     }
     else
     {
-        if(tresor >= Catapulte::prixC) //choisir une catapulte
+        if(tresor >= Catapulte::Prix) //choisir une catapulte
         {
             return CATAPULTE;
         }
-        else if(tresor >= Archer::prixA) // choisir un archer
+        else if(tresor >= Archer::Prix) // choisir un archer
         {
             return ARCHER;
         }
@@ -75,21 +75,21 @@ void Joueur::acheter()
             }
             case FANTASSIN:
             {
-                tresor -= Fantassin::prixF;
+                tresor -= Fantassin::Prix;
                 this->armee.push_back(new Fantassin(*this));
                 std::cout<<"Achat d'un fantassin";
                 break;
             }
             case ARCHER:
             {
-                tresor -= Archer::prixA;
+                tresor -= Archer::Prix;
                 this->armee.push_back(new Archer(*this));
                 std::cout<<"Achat d'un archer";
                 break;
             }
             case CATAPULTE:
             {
-                tresor -= Catapulte::prixC;
+                tresor -= Catapulte::Prix;
                 this->armee.push_back(new Catapulte(*this));
                 std::cout<<"Achat d'une catapulte";
                 break;

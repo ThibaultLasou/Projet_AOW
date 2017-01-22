@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-Base::Base(Jeu &jeu, Joueur &propri, int vie) :
-	 Case(jeu), Attaquable(propri, vie)
+Base::Base(Jeu &jeu, Joueur &propri) :
+	 Case(jeu), Attaquable(propri, Vie)
 {
 	std::cerr << "Constructeur <Base>" << std::endl;
 	propri.setBase(this);
@@ -52,8 +52,6 @@ void Base::mort()
 {
 	this->leJeu.fin(&(this->proprio));
 }
-
-std::string Base::
 
 std::string Base::toString() const
 {
