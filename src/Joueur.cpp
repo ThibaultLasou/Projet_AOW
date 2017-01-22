@@ -117,20 +117,23 @@ void Joueur::jouer(Jeu &jeu)
 	std::list<Unite*>::const_iterator it;
 	for(it = armee.end(), it--; it != it_before; --it)
 	{
+		nettoyer(it,-1);
 		std::cout << (*it)->toString() << " : action 1" << std::endl;
 		(*it)->action1();
 		std::cout << jeu.toString()<<std::endl<<std::endl;
 	}
 
-	for( it = armee.begin(); it != armee.end(); it++)
+	for(it = armee.begin(); it != armee.end(); it++)
 	{
+		nettoyer(it,-1);
 		std::cout << (*it)->toString() << " : action 2" << std::endl;
 		(*it)->action2();
 		std::cout << jeu.toString()<<std::endl<<std::endl;
 	}
 
-	for( it = armee.begin(); it != armee.end(); it++)
+	for(it = armee.begin(); it != armee.end(); it++)
 	{
+		nettoyer(it,-1);
 		std::cout << (*it)->toString() << " : action 3" << std::endl;
 		(*it)->action3();
 		std::cout << jeu.toString()<<std::endl<<std::endl;
@@ -174,7 +177,23 @@ void Joueur::removeUnite(Unite* u)
 	it = std::find (armee.begin(), armee.end(), u);// std::find sert a verifier si l'unite u est dans la list armee
 	if (it != armee.end()) //L'unite u appartient à larmee
 	{
-		it = armee.erase(it) ;
+		armee.erase(it) ;
+		return;
+	}
+	else // u n'est pas dans la
+	{
+		throw NotInListException();
+	}
+}
+
+void Joueur::remplaceUnite(Unite *old, Unite *nouv)
+{
+	std::list<Unite*>::iterator it;
+	it = std::find (armee.begin(), armee.end(), old);// std::find sert a verifier si l'unite u est dans la list armee
+	if (it != armee.end()) //L'unite u appartient à larmee
+	{
+		armee.insert(it, nouv);
+		nettoyage.push_back(old);
 		return;
 	}
 	else // u n'est pas dans la
@@ -186,4 +205,31 @@ void Joueur::removeUnite(Unite* u)
 int Joueur::getTresor() const
 {
 	return tresor;
+}
+
+void Joueur::nettoyer(std::list<Unite*>::const_iterator &it, int dir)
+{
+	for(Unite *u : nettoyage)
+	{
+		if(u == *it)
+		{
+			switch(dir)
+			{
+				case -1 : it--; break;
+				case 1 : it++; break;
+				default : ;
+			}
+		}
+		std::list<Unite*>::iterator itf;
+		itf = std::find (armee.begin(), armee.end(), u);// std::find sert a verifier si l'unite u est dans la list armee
+		if (itf != armee.end()) //L'unite u appartient à larmee
+		{
+			armee.erase(itf) ;
+		}
+		else // u n'est pas dans la liste
+		{
+			throw NotInListException();
+		}
+	}
+	nettoyage.clear();
 }

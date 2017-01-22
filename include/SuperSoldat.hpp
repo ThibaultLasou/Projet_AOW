@@ -34,6 +34,8 @@ class SuperSoldat : public Fantassin
          * La troisièmme action d'un super-soldat est attaquer
          */
 		virtual void action3() override;
+		
+		std::string toString(bool grand) const override;
 };
 
 #endif // SUPERSOLDAT_HPP

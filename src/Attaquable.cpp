@@ -23,6 +23,10 @@ void Attaquable::recevoirDegats(int deg, resultAttaque &res)
 		res.fatal = true;
 		mort();
 	}
+	else
+	{
+		res.fatal=false;
+	}
 }
 
 void Attaquable::mort()

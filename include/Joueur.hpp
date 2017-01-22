@@ -17,6 +17,7 @@ class Joueur
 		int sonCote;            /* sonCote désigne le sens dans lequel se déplacent les unités sur l'aire de jeu */
 		std::list<Unite*> armee; /* armee est la liste d'unite du joueur. L'unite a la fin est la plus proche de la base */
 		Base* saBase;
+		std::list<Unite*> nettoyage; /* sert à conserver les unités ne pouvant être supprimés immédiatement */
 
 	public :
         /* Constructeur : Joueur
@@ -97,10 +98,14 @@ class Joueur
          */
 		void removeUnite(Unite* u);
 
+		void remplaceUnite(Unite* old, Unite* nouv);
+
         /* Accesseur : getTresor
          * Renvoie le tresor du joueur
          */
 		int getTresor() const;
+
+		void nettoyer(std::list<Unite*>::const_iterator &it, int dir);
 };
 
 #endif
