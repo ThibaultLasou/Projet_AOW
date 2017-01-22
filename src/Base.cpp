@@ -8,7 +8,7 @@
 #include <iostream>
 
 Base::Base(Jeu &jeu, Joueur &propri) :
-	 Case(jeu), Attaquable(propri, Vie)
+	 Case(jeu), Attaquable(propri, Vie, BASE)
 {
 	std::cerr << "Constructeur <Base>" << std::endl;
 	propri.setBase(this);

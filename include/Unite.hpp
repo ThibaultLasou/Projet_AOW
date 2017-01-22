@@ -38,7 +38,7 @@ class Unite : public Attaquable
          *  - port, designe la portee de l'unite
          * Fait appel au constructeur d'Attaquable comme c'est une redéfintion
          */
-		Unite(Joueur& propri, int pv, int att, int prix, std::vector<int> portee);
+		Unite(Joueur& propri, int pv, int att, int prix, std::vector<int> portee, A_type _type);
 
         /* Destructeur : ~Unite
          * Permet de détruire l'objet
@@ -68,7 +68,7 @@ class Unite : public Attaquable
          * Cette fonction retranche deg des points de vie d'attaquable. Si ce dernier n'a plus de points de vie la
          * fonction mort() est appelée.
          */
-		virtual int recevoirDegats(int deg) override;
+		virtual void recevoirDegats(int deg, resultAttaque &res) override;
 
         /* Fonction : afficheAtt
          * Entrée :
@@ -81,6 +81,8 @@ class Unite : public Attaquable
          * Fontion d'affichage qui sera definie dans chaque sous-classes
          */
 		virtual std::string toString(bool grand=false) const;
+		
+		virtual void meurtre(resultAttaque &res);
 };
 
 #endif

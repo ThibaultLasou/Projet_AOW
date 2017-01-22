@@ -4,7 +4,7 @@
 class Joueur;
 
 /* Enumeration des types d'd'attaquable existants */
-typedef enum {BASE=0, FANTASSIN, ARCHER, CATAPULTE, SUPERS} E_type;
+typedef enum {BASE=0, FANTASSIN, ARCHER, CATAPULTE, SUPERS} A_type;
 typedef struct _resultAttaque resultAttaque;
 
 /* Attaquable est une classe mère qui possède plusieurs fonctions virtulles qui seront redéfinies dans les sous-classes
@@ -16,6 +16,7 @@ typedef struct _resultAttaque resultAttaque;
 class Attaquable
 {
 	protected:
+		A_type type;
 		int vie;         /* l'entier vie désigne les points de vie de l'attaquable*/
 		Joueur &proprio; /* le joueur proprietaire  */
 
@@ -25,7 +26,7 @@ class Attaquable
          *	- proprio : proprietaire de l'attaquable
          *  - pv, designe les points de vie
          */
-		Attaquable(Joueur &propri, int pv);
+		Attaquable(Joueur &propri, int pv, A_type _type);
 
         /* Destructeur : ~Attaquable*/
 		virtual ~Attaquable();
@@ -38,7 +39,7 @@ class Attaquable
          * Cette fonction retranche deg des points de vie d'attaquable. Si ce dernier n'a plus de points de vie la
          * fonction mort() est appelée.
          */
-		virtual int recevoirDegats(int deg);
+		virtual void recevoirDegats(int deg, resultAttaque &res);
 
         /* Fonction : mort
          * Cette fonction permet de supprimer l'attaquable si ce denrnier est mort, autrement dit s'il n'a plus
@@ -63,8 +64,10 @@ class Attaquable
 
 struct _resultAttaque
 {
+	A_type type;
 	bool fatal;
-	E_type type;
+	int degats;
+	int valeur;
 };
 
 #endif

@@ -6,8 +6,8 @@
 #include <iostream>
 #include <sstream>
 
-Unite::Unite(Joueur &propri, int pv, int att, int _prix, std::vector<int> _portee) :
-	Attaquable(propri, pv), attaque(att), prix(_prix), portee(_portee), saCase(&(propri.getBase()))
+Unite::Unite(Joueur &propri, int pv, int att, int _prix, std::vector<int> _portee, A_type _type) :
+	Attaquable(propri, pv, _type), attaque(att), prix(_prix), portee(_portee), saCase(&(propri.getBase()))
 {
 	std::cerr << "Constructeur <Unite>" << std::endl;
 	saCase->setUnite(this);
@@ -32,7 +32,12 @@ bool Unite::attaquer()
 				if(nextCase->cible()->estEnnemi(*this)) 
 				{
 					afficheAtt(nextCase->cible());
-					nextCase->cible()->recevoirDegats(this->attaque);
+					resultAttaque res;
+					nextCase->cible()->recevoirDegats(this->attaque, res);
+					if(res.fatal)
+					{
+						meurtre(res);
+					}
 					return true;
 				}
 			}
@@ -40,6 +45,17 @@ bool Unite::attaquer()
 	}
 	afficheAtt(nullptr);
 	return false;
+}
+
+void Unite::recevoirDegats(int deg, resultAttaque &res)
+{
+	res.valeur = this->prix;
+	Attaquable::recevoirDegats(deg, res);
+}
+
+void Unite::meurtre(resultAttaque &res)
+{
+	proprio.ajoutArgent(res.valeur);
 }
 
 bool Unite::avancer()
@@ -71,18 +87,6 @@ void Unite::afficheAtt(Attaquable *a)
 		std::cout << this->toString() << " attaque " << a->toString() << std::endl;
 	}
 }
-
-int Unite::recevoirDegats(int deg)
-{
-    int gold = 0;
-	vie -= deg;
-	if(vie <= 0)
-	{
-		gold = this->prix;
-		mort();
-	}
-	return gold;
-}	
 
 std::string Unite::toString(bool grand) const
 {

@@ -13,7 +13,7 @@ Jeu::Jeu(std::string nomJ1, std::string nomJ2, int tourMax, int orTour, int case
 {
 	std::cerr << "Constructeur <Jeu>" << std::endl;
 
-	Joueur *j = new Joueur(nomJ1, 1);
+	Joueur *j = new JoueurHumain(nomJ1, 1);
 	JoueurHumain *j2 = new JoueurHumain(nomJ2, -1);
 	joueurs.push_back(j);
 	joueurs.push_back(j2);

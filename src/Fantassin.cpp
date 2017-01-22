@@ -1,10 +1,11 @@
 #include <sstream>
 #include "Joueur.hpp"
 #include "Fantassin.hpp"
+#include "SuperSoldat.hpp"
 
 const std::vector<int> Fantassin::Portee {1};
 
-Fantassin::Fantassin(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee), aJoue(false)
+Fantassin::Fantassin(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee, FANTASSIN), aJoue(false)
 {
 
 }
@@ -29,6 +30,15 @@ void Fantassin::action3()
 	{
         attaquer();
         aJoue = false;
+	}
+}
+
+void Fantassin::meurtre(resultAttaque &res)
+{
+	Unite::meurtre(res);
+	if(res.type == FANTASSIN)
+	{
+		new SuperSoldat(*this);
 	}
 }
 

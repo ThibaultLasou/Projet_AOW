@@ -4,7 +4,7 @@
 
 const std::vector<int> Archer::Portee {1,2,3};
 
-Archer::Archer(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee)
+Archer::Archer(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee, ARCHER)
 {
 
 }

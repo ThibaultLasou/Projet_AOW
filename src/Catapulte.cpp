@@ -4,7 +4,7 @@
 
 const std::vector<int> Catapulte::Portee {2,3,4};
 
-Catapulte::Catapulte(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee)
+Catapulte::Catapulte(Joueur &propri): Unite(propri, Vie, Attaque, Prix, Portee, CATAPULTE)
 {
 
 }
@@ -52,14 +52,23 @@ bool Catapulte::attaquer()
 				if(nextCase->cible()->estEnnemi(*this)) 
 				{
 					afficheAtt(nextCase->cible());
-					nextCase->cible()->recevoirDegats(this->attaque);
+					resultAttaque res;
+					nextCase->cible()->recevoirDegats(this->attaque, res);
+					if(res.fatal)
+					{
+						meurtre(res);
+					}
 					Case *nextCase2 = nextCase->getCase(1, proprio.cote());
 					if(nextCase2 != nullptr)
 					{
 						if(!nextCase2->estLibre())
 						{
 							afficheAtt(nextCase2->cible());
-							nextCase2->cible()->recevoirDegats(this->attaque);
+							nextCase2->cible()->recevoirDegats(this->attaque, res);
+							if(res.fatal)
+							{
+								meurtre(res);
+							}
 						}
 					}
 					return true;

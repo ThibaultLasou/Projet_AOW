@@ -3,6 +3,7 @@
 
 #include "Unite.hpp"
 
+class SuperSoldat;
 /* Fantassin hérite d'Unite, car un fantassin est une unité*/
 class Fantassin : public Unite
 {
@@ -44,6 +45,8 @@ class Fantassin : public Unite
          * Fontion d'affichage.
          */
 		virtual std::string toString(bool grand) const override;
+		
+		void meurtre(resultAttaque &res) override;
 };
 
 #endif
