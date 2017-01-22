@@ -4,6 +4,7 @@
 #include "Base.hpp"
 
 #include <iostream>
+#include <sstream>
 
 Unite::Unite(Joueur &propri, int pv, int att, int _prix, std::vector<int> _portee) :
 	Attaquable(propri, pv), attaque(att), prix(_prix), portee(_portee), saCase(&(propri.getBase()))
@@ -31,7 +32,7 @@ bool Unite::attaquer()
 				if(nextCase->cible()->estEnnemi(*this)) 
 				{
 					afficheAtt(nextCase->cible());
-					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
+					nextCase->cible()->recevoirDegats(this->attaque);
 					return true;
 				}
 			}
@@ -46,9 +47,11 @@ bool Unite::avancer()
 	Case *nextCase = this->saCase->getCase(1, proprio.cote());
 	if(nextCase != nullptr && nextCase->estLibre())
 	{
+		std::cout << toString() << " avance sur la ";
 		nextCase->setUnite(this);
 		saCase->setUnite(nullptr);
 		this->saCase = nextCase;
+		std::cout << this->saCase->toString()<< std::endl;
 		return true;
 	}
 	else
@@ -80,3 +83,17 @@ int Unite::recevoirDegats(int deg)
 	}
 	return gold;
 }	
+
+std::string Unite::toString(bool grand) const
+{
+	std::stringstream res;
+	if(!grand)
+	{
+		res << "(" << saCase->Case::toString() << ")";
+	}
+	if(grand)
+	{
+		res << "(" << proprio.toString() << ") : " << vie << " PV";
+	}
+	return res.str();
+}

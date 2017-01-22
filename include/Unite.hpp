@@ -60,11 +60,6 @@ class Unite : public Attaquable
          */
 		virtual void action3() = 0;
 
-        /* Fonction : toString
-         * Fontion virtuelle pure d'affichage qui va etre definie dans chaque sous-classes selon l'énoncé
-         */
-		virtual std::string toString() const = 0;
-
         /* Fonction : recevoirDegats
          * Entrée :
          *	- deg : entier qui désigne les degats que peur recevoir l'attaquable
@@ -73,7 +68,7 @@ class Unite : public Attaquable
          * Cette fonction retranche deg des points de vie d'attaquable. Si ce dernier n'a plus de points de vie la
          * fonction mort() est appelée.
          */
-		virtual int recevoirDegats(int deg);
+		virtual int recevoirDegats(int deg) override;
 
         /* Fonction : afficheAtt
          * Entrée :
@@ -81,6 +76,11 @@ class Unite : public Attaquable
          * Cette fonction est une fontion d'affichage.
          */
 		virtual void afficheAtt(Attaquable *a);
+
+        /* Fonction : toString
+         * Fontion d'affichage qui sera definie dans chaque sous-classes
+         */
+		virtual std::string toString(bool grand=false) const;
 };
 
 #endif

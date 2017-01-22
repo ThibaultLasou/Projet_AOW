@@ -32,9 +32,9 @@ void Fantassin::action3()
 	}
 }
 
-std::string Fantassin::toString() const
+std::string Fantassin::toString(bool grand) const
 {
 	std::stringstream res;
-	res << "Fantassin (" + proprio.sonNom() +") : " << vie << " PV";
+	res << "Fantassin "<< Unite::toString(grand);
 	return res.str();
 }

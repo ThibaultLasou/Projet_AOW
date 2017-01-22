@@ -48,7 +48,7 @@ class Base : public Case, public Attaquable
         /* Fonction : toString
          * Fontion d'affichage
          */
-		std::string toString() const;
+		std::string toString(bool grand=false) const;
 };
 
 #endif

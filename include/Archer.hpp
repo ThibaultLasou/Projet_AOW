@@ -43,7 +43,7 @@ class Archer : public Unite
         /* Fonction : toString
          * Fontion d'affichage.
          */
-		virtual std::string toString() const override;
+		virtual std::string toString(bool grand=false) const override;
 };
 
 

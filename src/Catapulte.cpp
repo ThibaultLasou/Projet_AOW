@@ -33,10 +33,10 @@ void Catapulte::action3()
 	}
 }
 
-std::string Catapulte::toString() const
+std::string Catapulte::toString(bool grand) const
 {
 	std::stringstream res;
-	res << "Catapulte (" + proprio.sonNom() +") : " << vie << " PV";
+	res << "Catapulte " << Unite::toString(grand);
 	return res.str();
 }
 
@@ -51,21 +51,23 @@ bool Catapulte::attaquer()
 			{
 				if(nextCase->cible()->estEnnemi(*this)) 
 				{
-					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
-					Case *nextCase2 = this->saCase->getCase(i+1*proprio.cote(), proprio.cote());
+					afficheAtt(nextCase->cible());
+					nextCase->cible()->recevoirDegats(this->attaque);
+					Case *nextCase2 = nextCase->getCase(1, proprio.cote());
 					if(nextCase2 != nullptr)
 					{
 						if(!nextCase2->estLibre())
 						{
-							proprio.ajoutArgent(nextCase2->cible()->recevoirDegats(this->attaque));
+							afficheAtt(nextCase2->cible());
+							nextCase2->cible()->recevoirDegats(this->attaque);
 						}
 					}
-					proprio.ajoutArgent(nextCase->cible()->recevoirDegats(this->attaque));
 					return true;
 				}
 			}
 		}
 	}
+	afficheAtt(nullptr);
 	return false;
 }
 

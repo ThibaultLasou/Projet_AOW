@@ -16,7 +16,7 @@ class Jeu
 		int nbTour;     /* numéro du tour actuel*/
 		int orParTour;  /* A chaque tour un certain nombre de pieces d'or est distribué aux joueurs*/
 		int nbCases;    /* nombre de cases de l'aire de jeu*/
-		std::list<Case*> leTerrain; /* Terrain qui est une liste de cases*/
+		std::vector<Case*> leTerrain; /* Terrain qui est une liste de cases*/
 		std::vector<Joueur*> joueurs; /* joueurs qui stocke les joueurs*/
 
 	public :

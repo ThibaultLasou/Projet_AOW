@@ -27,9 +27,9 @@ void Archer::action3()
 	/* rien */
 }
 
-std::string Archer::toString() const
+std::string Archer::toString(bool grand) const
 {
 	std::stringstream res;
-	res << "Archer (" + proprio.sonNom() +") : " << vie << " PV";
+	res << "Archer " << Unite::toString(grand);
 	return res.str();
 }

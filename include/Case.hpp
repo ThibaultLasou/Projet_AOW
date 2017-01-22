@@ -15,9 +15,9 @@ class Case
 	protected :
 		Jeu &leJeu;     /* L'aire de jeu auquel la case appartient*/
 		Unite *occupe;  /* L'unite qui occupe la case*/
-		int num;
 
 	public :
+		const int num;
 
         /* Constructeur : Case
          * Entrees :
@@ -59,8 +59,11 @@ class Case
 
         /* Fonction : toString
          * Fontion d'affichage
+		 * Entrees :
+		 *	- grand : bool
+		 * Le booléen permet d'afficher plus d'informations
          */
-		virtual std::string toString() const;
+		virtual std::string toString(bool grand=false) const;
 };
 
 

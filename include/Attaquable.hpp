@@ -49,7 +49,7 @@ class Attaquable
         /* Fonction : toString
          * Fontion virtuelle pure d'affichage qui va etre definie dans les sous-classes.
          */
-		virtual std::string toString() const =0;
+		virtual std::string toString(bool grand=false) const =0;
 
         /* Fonction : estEnnemi
          * Entrée :

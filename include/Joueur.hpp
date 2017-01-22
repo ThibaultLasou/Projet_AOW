@@ -81,15 +81,13 @@ class Joueur
          */
 		int cote() const;
 
-        /* Accesseur : sonNom
-         * Renvoie le nom du joueur
-         */
-		std::string sonNom() const;
-
         /* Fonction : toString
          * Fontion d'affichage
+		 * Entrees :
+		 *	- grand : bool
+		 * Le booléen permet d'afficher plus d'informations
          */
-		std::string toString() const;
+		std::string toString(bool grand = false) const;
 
          /* Fonction : removeUnite
          * Entrees :

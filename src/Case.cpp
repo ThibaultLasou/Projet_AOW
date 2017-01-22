@@ -3,6 +3,7 @@
 #include "Unite.hpp"
 
 #include <iostream>
+#include <sstream>
 
 int Case::nbCases = 0;
 
@@ -45,14 +46,20 @@ Attaquable* Case::cible()
 	return occupe;
 }
 
-std::string Case::toString() const
+std::string Case::toString(bool grand) const
 {
-	if(occupe != nullptr)
+	std::stringstream res;
+	res << "Case "<< num;
+	if(grand)
 	{
-		return occupe->toString();
+		if(occupe != nullptr)
+		{
+			res << " : " << occupe->toString(true);
+		}
+		else
+		{
+			res << " : vide";
+		}
 	}
-	else
-	{
-		return "vide";
-	}
+	return res.str();
 }

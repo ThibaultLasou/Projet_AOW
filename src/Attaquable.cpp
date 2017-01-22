@@ -25,6 +25,7 @@ int Attaquable::recevoirDegats(int deg)
 
 void Attaquable::mort()
 {
+	std::cout << toString() << " est mort" << std::endl;
 	delete this;
 }
 

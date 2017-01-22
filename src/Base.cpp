@@ -53,9 +53,13 @@ void Base::mort()
 	this->leJeu.fin(&(this->proprio));
 }
 
-std::string Base::toString() const
+std::string Base::toString(bool grand) const
 {
 	std::stringstream res;
-	res << Case::toString() << "	|	Base : " << this->vie << " PV";
+	res << Case::toString(grand);
+	if(grand)
+	{
+		res <<"	|| Base : " << this->vie << " PV";
+	}
 	return res.str();
 }

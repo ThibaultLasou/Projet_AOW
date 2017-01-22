@@ -42,7 +42,6 @@ class Catapulte : public Unite
          * La catapulte n'a pas de deuxiemme action
          */
 		virtual void action2() override;
-
         /* Fonction : action3
          * La catapulte avance si elle n'a pas attaqué à la première action
          */
@@ -51,7 +50,7 @@ class Catapulte : public Unite
         /* Fonction : toString
          * Fontion d'affichage.
          */
-		virtual std::string toString() const override;
+		virtual std::string toString(bool grand) const override;
 };
 
 
