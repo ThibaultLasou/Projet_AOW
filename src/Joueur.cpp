@@ -58,44 +58,44 @@ int Joueur::choix()
 
 void Joueur::acheter()
 {
-	std::cout<< toString() << " : ";
+	mstream::mout<< toString() << " : ";
 	try{
 		int choixUnite = choix();
 		switch(choixUnite)
 		{
 			case -1:
 				{
-					std::cout<<"La base n'est pas libre";
+					mstream::mout<<"La base n'est pas libre";
 					break;
 				}
 			case 0:
 				{
-					std::cout<<"Pas d'achat";
+					mstream::mout<<"Pas d'achat";
 					break;
 				}
 			case FANTASSIN:
 				{
 					tresor -= Fantassin::Prix;
 					this->armee.push_back(new Fantassin(*this));
-					std::cout<<"Achat d'un fantassin";
+					mstream::mout<<"Achat d'un fantassin";
 					break;
 				}
 			case ARCHER:
 				{
 					tresor -= Archer::Prix;
 					this->armee.push_back(new Archer(*this));
-					std::cout<<"Achat d'un archer";
+					mstream::mout<<"Achat d'un archer";
 					break;
 				}
 			case CATAPULTE:
 				{
 					tresor -= Catapulte::Prix;
 					this->armee.push_back(new Catapulte(*this));
-					std::cout<<"Achat d'une catapulte";
+					mstream::mout<<"Achat d'une catapulte";
 					break;
 				}
 		}
-		std::cout<<" (or restant : "<<tresor<<")"<<std::endl;
+		mstream::mout<<" (or restant : "<<tresor<<")"<<std::endl;
 	}
 	catch(const std::exception &e)
 	{
@@ -111,41 +111,41 @@ Base& Joueur::getBase() const
 
 void Joueur::jouer(Jeu &jeu)
 {
-	std::cout << std::endl<< "Tour du " << toString()<<std::endl<<"----------------"<<std::endl;
+	mstream::mout << std::endl<< "Tour du " << toString()<<std::endl<<"----------------"<<std::endl;
 	std::list<Unite*>::const_iterator it_before = armee.begin();
 	--it_before;
 	std::list<Unite*>::const_iterator it;
 	for(it = armee.end(), it--; it != it_before; --it)
 	{
 		nettoyer(it,-1);
-		std::cout << (*it)->toString() << " : action 1" << std::endl;
+		mstream::mout << (*it)->toString() << " : action 1" << std::endl;
 		(*it)->action1();
-		std::cout << jeu.toString()<<std::endl<<std::endl;
+		mstream::mout << jeu.toString()<<std::endl<<std::endl;
 	}
 
 	for(it = armee.begin(); it != armee.end(); it++)
 	{
 		nettoyer(it,-1);
-		std::cout << (*it)->toString() << " : action 2" << std::endl;
+		mstream::mout << (*it)->toString() << " : action 2" << std::endl;
 		(*it)->action2();
-		std::cout << jeu.toString()<<std::endl<<std::endl;
+		mstream::mout << jeu.toString()<<std::endl<<std::endl;
 	}
 
 	for(it = armee.begin(); it != armee.end(); it++)
 	{
 		nettoyer(it,-1);
-		std::cout << (*it)->toString() << " : action 3" << std::endl;
+		mstream::mout << (*it)->toString() << " : action 3" << std::endl;
 		(*it)->action3();
-		std::cout << jeu.toString()<<std::endl<<std::endl;
+		mstream::mout << jeu.toString()<<std::endl<<std::endl;
 	}
 	acheter();
 }
 
 void Joueur::ajoutArgent(int montant)
 {
-	std::cout<<toString()<< " : "<< tresor;
+	mstream::mout<<toString()<< " : "<< tresor;
 	this->tresor += montant;
-	std::cout<<"->"<<tresor<< " or"<<std::endl;
+	mstream::mout<<"->"<<tresor<< " or"<<std::endl;
 
 }
 

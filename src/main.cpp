@@ -1,8 +1,6 @@
 #include <iostream>
 
 #include "Jeu.hpp"
-
-#include "Mstream.hpp"
 /* Programme principal*/
 
 int main()

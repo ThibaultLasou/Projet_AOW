@@ -1,7 +1,6 @@
 #include "Attaquable.hpp"
-
-
 #include <iostream>
+#include "Mstream.hpp"
 
 Attaquable::Attaquable(Joueur &propri, int pv, A_type _type) :
 	type(_type), vie(pv), proprio(propri)
@@ -32,7 +31,7 @@ void Attaquable::recevoirDegats(int deg, resultAttaque &res)
 
 void Attaquable::mort()
 {
-	mout << toString() << " est mort" <<"\n";
+	mstream::mout << toString() << " est mort" <<"\n";
 	delete this;
 }
 

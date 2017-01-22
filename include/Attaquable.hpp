@@ -72,5 +72,4 @@ struct _resultAttaque
 	int valeur;
 };
 
-extern mstream mout;
 #endif

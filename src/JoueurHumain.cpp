@@ -14,7 +14,7 @@ int JoueurHumain::choix()
 {
     if(!saBase->peutSpawn())
     {
-        std::cout << "Joueur : "<<nom<<" La base n'est pas libre." << std::endl;
+        mstream::mout << "Joueur : "<<nom<<" La base n'est pas libre." << std::endl;
         return -1;
     }
 	int c;
@@ -31,14 +31,14 @@ int JoueurHumain::choix()
                 {
                     case 0 :
                     {
-                        std::cout << "Pas d'achat" << std::endl;
+						mstream::mout << "Pas d'achat" << std::endl;
                         return 0;
                     }
                     case 1 :
                     {
                          if(getTresor() >= Fantassin::Prix)
                          {
-                            std::cout << "1" << std::endl;
+                            mstream::mout << "1" << std::endl;
                             return FANTASSIN;
                          }
                     }
@@ -46,7 +46,7 @@ int JoueurHumain::choix()
                     {
                          if(getTresor() >= Archer::Prix)
                          {
-                            std::cout << "2" << std::endl;
+                            mstream::mout << "2" << std::endl;
                             return ARCHER;
                          }
                     }
@@ -54,12 +54,12 @@ int JoueurHumain::choix()
                     {
                         if(getTresor() >= Catapulte::Prix)
                         {
-                            std::cout << "3" << std::endl;
+                            mstream::mout << "3" << std::endl;
                             return CATAPULTE;
                         }
-                        std::cout << "4-Pas assez d'argent" << std::endl;
+                        mstream::mout << "4-Pas assez d'argent" << std::endl;
                     }
-                    default : std::cout << "Ressaisir un chiffre" << std::endl;
+                    default : mstream::mout << "Ressaisir un chiffre" << std::endl;
                 }
             }
             else

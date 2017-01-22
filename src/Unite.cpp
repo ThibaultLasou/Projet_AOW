@@ -49,7 +49,7 @@ bool Unite::attaquer()
 
 void Unite::recevoirDegats(int deg, resultAttaque &res)
 {
-	res.valeur = this->prix;
+	res.valeur = this->prix/2;
 	Attaquable::recevoirDegats(deg, res);
 }
 
@@ -63,11 +63,11 @@ bool Unite::avancer()
 	Case *nextCase = this->saCase->getCase(1, proprio.cote());
 	if(nextCase != nullptr && nextCase->estLibre())
 	{
-		std::cout << toString() << " avance sur la ";
+		mstream::mout << toString() << " avance sur la ";
 		nextCase->setUnite(this);
 		saCase->setUnite(nullptr);
 		this->saCase = nextCase;
-		std::cout << this->saCase->toString()<< std::endl;
+		mstream::mout << this->saCase->toString()<< std::endl;
 		return true;
 	}
 	else
@@ -80,11 +80,11 @@ void Unite::afficheAtt(Attaquable *a)
 {
 	if(a == nullptr)
 	{
-		std::cout << this->toString() << " n'a pas attaqué" << std::endl;
+		mstream::mout << this->toString() << " n'a pas attaqué" << std::endl;
 	}
 	else
 	{
-		std::cout << this->toString() << " attaque " << a->toString() << std::endl;
+		mstream::mout << this->toString() << " attaque " << a->toString() << std::endl;
 	}
 }
 

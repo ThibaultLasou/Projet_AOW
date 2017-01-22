@@ -6,31 +6,39 @@
 /* Classe mstream permet l'affichage sur la console et sur un fichier*/
 class mstream
 {
-    public:
-         std::ofstream coss;
+	public:
+		static mstream mout;
 
-        /* Constructeur : mstream
-         */
-         mstream(void);
+		std::ofstream coss;
 
-        /* Destructeur : ~mstream
-         * Permet de détruire l'objet
-         */
-        ~mstream(void);
+		/* Constructeur : mstream
+		*/
+		mstream(void);
 
-        /* Redefinition operateur <<*/
-        template <class T>
-        friend mstream& operator<< (mstream& st, T val);
+		/* Destructeur : ~mstream
+		 * Permet de détruire l'objet
+		 */
+		~mstream(void);
+
+		/* Redefinition operateur <<*/
+		template <class T>
+			friend mstream& operator<< (mstream& st, T val);
+
+mstream& operator<< (std::ostream& (*pfun)(std::ostream&))
+{
+	pfun(coss);
+	pfun(std::cout);
+	return *this;
+}
 
 };
 
-template <class T>
+	template <class T>
 mstream& operator<< (mstream& st, const T val)
 {
-  st.coss << val;
-  std::cout << val;
-  return st;
+	st.coss << val;
+	std::cout << val;
+	return st;
 }
 
-extern mstream mout;
 #endif // MSTREAM_HPP

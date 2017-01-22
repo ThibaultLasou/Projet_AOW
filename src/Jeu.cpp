@@ -43,11 +43,11 @@ Jeu::~Jeu()
 
 void Jeu::tourDeJeu()
 {
-	std::cout << std::endl <<std::endl
-			  << "===========" << std::endl
-			  << "  Tour " << nbTour << std::endl
-			  << "===========" << std::endl << std::endl;
-	std::cout << toString();
+	mstream::mout	<< std::endl <<std::endl
+					<< "===========" << std::endl
+					<< "  Tour " << nbTour << std::endl
+					<< "===========" << std::endl << std::endl;
+	mstream::mout << toString();
     for(Joueur* joueur : joueurs)
     {
        joueur->ajoutArgent(orParTour);
@@ -100,7 +100,7 @@ void Jeu::fin(Joueur* perdant)
 	{
 		gagnant = joueurs[0];
 	}
-	std::cout<< gagnant->toString() << " a gagné " << std::endl;
-	this->~Jeu();
+	mstream::mout<< "---------------------------"<< std::endl<<gagnant->toString() << " a gagné " << std::endl << "---------------------------"<<std::endl<<toString();
+	this->~Jeu(); /* bizarre mais nécessaire, a cause du exit */
 	exit(EXIT_SUCCESS);
 }
